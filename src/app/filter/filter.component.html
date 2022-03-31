@@ -1,5 +1,7 @@
-<mat-toolbar>
-    <button (click)="changeSortingDate()">DATE</button>
-    <button (click)="changeSortingViews()">Vievewrs</button>
+<mat-toolbar class="container">
+    <span class="sortingBy">Sorting by:</span>
+    <a class="sorting" (click)="changeSortingDate()">date</a>
+    <a class="sorting" (click)="changeSortingViews()">count of views</a>
+    <span class="filter">by word or sentance</span>
     <input type="text" (input)="changeFilter($event)">
 </mat-toolbar>

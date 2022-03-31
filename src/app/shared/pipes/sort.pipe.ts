@@ -11,15 +11,19 @@ export class SortPipe implements PipeTransform {
     if (sort === '') {
       return list;
     }
-    if (sort === 'date' || sort === '-date') {
+    if (sort === 'views' || sort === '-views') {
       this.sortered = list?.sort((a, b) => a.statistics.viewCount - b.statistics.viewCount);
-      if (sort === '-date') {
+      if (sort === '-views') {
         this.sortered.reverse();
       }
     }
-    if (sort === 'view' || sort === '-view') {
-      this.sortered = list?.sort((a, b) => a.statistics.viewCount - b.statistics.viewCount);
-      if (sort === '-view') {
+    if (sort === 'date' || sort === '-date') {
+      this.sortered = list?.sort((a, b) => {
+        const firstDate = new Date(a.snippet.publishedAt).getTime();
+        const secondDate = new Date(b.snippet.publishedAt).getTime();
+        return firstDate - secondDate;
+      });
+      if (sort === '-date') {
         this.sortered.reverse();
       }
     }
