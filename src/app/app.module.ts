@@ -9,7 +9,6 @@ import { SearchItemComponent } from './search/search-item/search-item.component'
 import { HeaderComponent } from './header/header.component';
 import { FilterComponent } from './filter/filter.component';
 import { SharedModule } from './shared/shared.module';
-import { BottomBorderDirective } from './search/search-item/bottom-border/bottom-border.directive';
 import { StatisticsComponent } from './search/search-item/statistics/statistics.component';
 
 @NgModule({
@@ -19,7 +18,6 @@ import { StatisticsComponent } from './search/search-item/statistics/statistics.
     SearchItemComponent,
     HeaderComponent,
     FilterComponent,
-    BottomBorderDirective,
     StatisticsComponent,
   ],
   imports: [

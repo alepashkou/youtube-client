@@ -8,11 +8,11 @@ import {
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @Output() filterEvent = new EventEmitter<string>();
+  @Output() SearchEvent = new EventEmitter<string>();
 
   sortingDisplay = false;
 
-  changeFilter(value:string) {
-    this.filterEvent.emit(value);
+  changeSearch(value:string) {
+    this.SearchEvent.emit(value);
   }
 }

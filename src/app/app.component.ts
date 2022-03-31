@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SearchItem } from './search/search-item.model';
-import { youtubeData } from './youtubeData';
+import { youtubeData } from './shared/mock/youtubeData';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +12,9 @@ export class AppComponent {
 
   data: SearchItem[] = youtubeData.items;
 
-  filter: string = '';
+  search: string = '';
 
-  changeFilter(event:string) {
-    this.filter = event;
+  changeSearch(event:string) {
+    this.search = event;
   }
 }

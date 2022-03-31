@@ -15,5 +15,5 @@ import { SearchItem } from '../search-item.model';
 export class SearchResultsComponent {
   @Input() data?: SearchItem[];
 
-  @Input() filter?: string;
+  @Input() search?: string;
 }
