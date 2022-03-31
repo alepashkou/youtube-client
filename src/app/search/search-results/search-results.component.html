@@ -1,1 +1,3 @@
-<p>search-results works!</p>
+<div *ngIf="data" class="search__results">
+  <app-search-item *ngFor="let item of data | filterAndSort:filter" [item]="item"></app-search-item>
+</div>

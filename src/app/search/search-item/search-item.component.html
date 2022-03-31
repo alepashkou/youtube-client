@@ -1,1 +1,17 @@
-<p>search-item works!</p>
+<mat-card
+  class="search__card"
+  appBottomBorder
+  [date]="this.item?.snippet?.publishedAt"
+>
+  <img
+    mat-card-image
+    class="search__card-img"
+    [src]="this.item?.snippet?.thumbnails?.high?.url"
+    [alt]="this.item?.snippet?.title"
+  />
+<app-statistics [stat]="this.item?.statistics"></app-statistics>
+  <mat-card-title class="search__card-title">{{
+    this.item?.snippet?.title
+  }}</mat-card-title>
+  <button class="search__card-btn">more...</button>
+</mat-card>

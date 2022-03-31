@@ -1,0 +1,19 @@
+<mat-toolbar>
+    <div class="header_search">
+      <img src="../../../assets/logo.png" alt="logo" />
+      <input
+        type="text"
+        class="header__input"
+        placeholder="What are you want to find out"
+        #searchTextBox
+      />
+      <button class="header__btn" (click)="changeFilter(searchTextBox.value)">search</button>
+      <img (click)="sortingDisplay=!sortingDisplay" class="header__settings" src="../../../assets/icons/settings.png" alt="settings" />
+    </div>
+    <div class="header_login">
+      <p class="header__name">Your Name</p>
+      <img src="../../../assets/login.png" alt="login" />
+    </div>
+  </mat-toolbar>
+  <app-filter *ngIf="sortingDisplay"></app-filter>
+  

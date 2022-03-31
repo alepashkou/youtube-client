@@ -11,7 +11,7 @@ export interface ThumbnailItem {
   height: number;
 }
 export interface SnippetItem {
-  publishedAt: Date;
+  publishedAt: string;
   channelId: string;
   title: string;
   description: string;
@@ -26,6 +26,7 @@ export interface SnippetItem {
   tags: string[];
   categoryId: string;
   liveBroadcastContent: string;
+  defaultLanguage?: string;
   localized: {
     title: string;
     description: string;
