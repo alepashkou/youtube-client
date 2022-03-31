@@ -83,7 +83,7 @@ export const youtubeData: SearchResponse = {
         defaultAudioLanguage: 'en-US',
       },
       statistics: {
-        viewCount: '33265',
+        viewCount: 33265,
         likeCount: '1173',
         dislikeCount: '26',
         favoriteCount: '0',
@@ -139,7 +139,7 @@ export const youtubeData: SearchResponse = {
         defaultAudioLanguage: 'en',
       },
       statistics: {
-        viewCount: '456979',
+        viewCount: 456979,
         likeCount: '8213',
         dislikeCount: '131',
         favoriteCount: '0',
@@ -223,7 +223,7 @@ export const youtubeData: SearchResponse = {
         defaultAudioLanguage: 'en-US',
       },
       statistics: {
-        viewCount: '1266085',
+        viewCount: 1266085,
         likeCount: '18342',
         dislikeCount: '473',
         favoriteCount: '0',
@@ -304,7 +304,7 @@ export const youtubeData: SearchResponse = {
         defaultAudioLanguage: 'en-US',
       },
       statistics: {
-        viewCount: '14544',
+        viewCount: 14544,
         likeCount: '573',
         dislikeCount: '11',
         favoriteCount: '0',
@@ -380,7 +380,7 @@ export const youtubeData: SearchResponse = {
         defaultAudioLanguage: 'ru',
       },
       statistics: {
-        viewCount: '43470',
+        viewCount: 43470,
         likeCount: '1047',
         dislikeCount: '198',
         favoriteCount: '0',
@@ -460,7 +460,7 @@ export const youtubeData: SearchResponse = {
         defaultAudioLanguage: 'en',
       },
       statistics: {
-        viewCount: '57997',
+        viewCount: 57997,
         likeCount: '1662',
         dislikeCount: '34',
         favoriteCount: '0',
@@ -531,7 +531,7 @@ export const youtubeData: SearchResponse = {
         defaultAudioLanguage: 'ru',
       },
       statistics: {
-        viewCount: '33896',
+        viewCount: 33896,
         likeCount: '612',
         dislikeCount: '37',
         favoriteCount: '0',
@@ -609,7 +609,7 @@ export const youtubeData: SearchResponse = {
         defaultAudioLanguage: 'en-US',
       },
       statistics: {
-        viewCount: '6824',
+        viewCount: 6824,
         likeCount: '595',
         dislikeCount: '10',
         favoriteCount: '0',
@@ -691,7 +691,7 @@ export const youtubeData: SearchResponse = {
         defaultAudioLanguage: 'en-US',
       },
       statistics: {
-        viewCount: '12128',
+        viewCount: 12128,
         likeCount: '665',
         dislikeCount: '11',
         favoriteCount: '0',
@@ -761,7 +761,7 @@ export const youtubeData: SearchResponse = {
         defaultAudioLanguage: 'en',
       },
       statistics: {
-        viewCount: '56657',
+        viewCount: 56657,
         likeCount: '2092',
         dislikeCount: '36',
         favoriteCount: '0',

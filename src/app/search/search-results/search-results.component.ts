@@ -16,4 +16,8 @@ export class SearchResultsComponent {
   @Input() data?: SearchItem[];
 
   @Input() search?: string;
+
+  @Input() filter?: string;
+
+  @Input() sort?: string;
 }

@@ -10,9 +10,16 @@ import {
 export class HeaderComponent {
   @Output() SearchEvent = new EventEmitter<string>();
 
+  @Output() SortingDisplayEvent = new EventEmitter<boolean>();
+
   sortingDisplay = false;
 
   changeSearch(value:string) {
     this.SearchEvent.emit(value);
+  }
+
+  changeSortingDisplay() {
+    this.sortingDisplay = !this.sortingDisplay;
+    this.SortingDisplayEvent.emit(this.sortingDisplay);
   }
 }

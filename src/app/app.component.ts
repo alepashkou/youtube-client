@@ -14,7 +14,25 @@ export class AppComponent {
 
   search: string = '';
 
+  filterDisplay = false;
+
+  sort:string = '';
+
+  filter:string = '';
+
   changeSearch(event:string) {
     this.search = event;
+  }
+
+  changeDisplay(event:boolean) {
+    this.filterDisplay = event;
+  }
+
+  changeFilter(event:string) {
+    this.filter = event;
+  }
+
+  changeSort(event:string) {
+    this.sort = event;
   }
 }
