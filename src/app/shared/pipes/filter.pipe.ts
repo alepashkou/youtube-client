@@ -9,7 +9,8 @@ export class FilterPipe implements PipeTransform {
 
   transform(list?:SearchItem[], filter:string = ''): SearchItem[] {
     if (list) {
-      this.filtered = list?.filter((el) => el.snippet.title.includes(filter));
+      const lowerFilter = filter.toLowerCase();
+      this.filtered = list?.filter((el) => el.snippet.title.toLowerCase().includes(lowerFilter));
     }
 
     return this.filtered;
