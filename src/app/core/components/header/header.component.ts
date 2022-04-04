@@ -14,7 +14,7 @@ export class HeaderComponent {
   constructor(private headerService: HeaderService) {}
 
   changeSearch(value:string) {
-    this.headerService.search = value;
+    this.headerService.changeSearch(value);
   }
 
   changeSortingDisplay() {

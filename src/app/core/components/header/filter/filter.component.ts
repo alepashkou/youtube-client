@@ -19,7 +19,7 @@ export class FilterComponent {
     } else {
       this.sorting = 'date';
     }
-    this.headerService.sort = this.sorting;
+    this.headerService.changeSort(this.sorting);
   }
 
   changeSortingViews() {
@@ -28,11 +28,11 @@ export class FilterComponent {
     } else {
       this.sorting = 'views';
     }
-    this.headerService.sort = this.sorting;
+    this.headerService.changeSort(this.sorting);
   }
 
   changeFilter(event: Event) {
     this.filter = (<HTMLInputElement>event.target).value;
-    this.headerService.filter = this.filter;
+    this.headerService.changeFilter(this.filter);
   }
 }

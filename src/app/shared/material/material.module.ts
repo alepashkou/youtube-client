@@ -14,12 +14,14 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatCardModule,
     MatDividerModule,
     MatProgressBarModule,
+    MatProgressBarModule,
   ],
   exports: [
     MatToolbarModule,
     MatInputModule,
     MatCardModule,
     MatDividerModule,
+    MatProgressBarModule,
     MatProgressBarModule,
   ],
 })
