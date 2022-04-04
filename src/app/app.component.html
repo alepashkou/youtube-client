@@ -1,3 +1,2 @@
-<app-header (SearchEvent)="changeSearch($event)" (SortingDisplayEvent)="changeDisplay($event)"></app-header>
-<app-filter *ngIf="filterDisplay" (SortEvent)="changeSort($event)" (FilterEvent)="changeFilter($event)"></app-filter>
-<app-search-results [data]="data" [search]="search" [filter]="filter" [sort]="sort"></app-search-results>
+<app-header></app-header>
+<router-outlet></router-outlet>

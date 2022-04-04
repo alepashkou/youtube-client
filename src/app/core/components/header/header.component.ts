@@ -1,6 +1,7 @@
 import {
-  Component, EventEmitter, Output,
+  Component,
 } from '@angular/core';
+import { HeaderService } from '../../services/header.service';
 
 @Component({
   selector: 'app-header',
@@ -8,18 +9,15 @@ import {
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @Output() SearchEvent = new EventEmitter<string>();
-
-  @Output() SortingDisplayEvent = new EventEmitter<boolean>();
-
   sortingDisplay = false;
 
+  constructor(private headerService: HeaderService) {}
+
   changeSearch(value:string) {
-    this.SearchEvent.emit(value);
+    this.headerService.search = value;
   }
 
   changeSortingDisplay() {
     this.sortingDisplay = !this.sortingDisplay;
-    this.SortingDisplayEvent.emit(this.sortingDisplay);
   }
 }

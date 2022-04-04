@@ -4,27 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SearchResultsComponent } from './search/search-results/search-results.component';
-import { SearchItemComponent } from './search/search-item/search-item.component';
-import { HeaderComponent } from './header/header.component';
-import { FilterComponent } from './filter/filter.component';
-import { SharedModule } from './shared/shared.module';
-import { StatisticsComponent } from './search/search-item/statistics/statistics.component';
+import { CoreModule } from './core/core.module';
+import { YoutubeModule } from './youtube/youtube.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchResultsComponent,
-    SearchItemComponent,
-    HeaderComponent,
-    FilterComponent,
-    StatisticsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule,
+    CoreModule,
+    YoutubeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
