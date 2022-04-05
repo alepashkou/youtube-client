@@ -1,6 +1,7 @@
 import {
   Component,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { HeaderService } from '../../services/header.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { HeaderService } from '../../services/header.service';
 export class HeaderComponent {
   sortingDisplay = false;
 
-  constructor(private headerService: HeaderService) {}
+  constructor(private headerService: HeaderService, public route: Router) {}
 
   changeSearch(value:string) {
     this.headerService.changeSearch(value);
@@ -19,5 +20,9 @@ export class HeaderComponent {
 
   changeSortingDisplay() {
     this.sortingDisplay = !this.sortingDisplay;
+  }
+
+  goToMain() {
+    this.route.navigate(['']);
   }
 }
