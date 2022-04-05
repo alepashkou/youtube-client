@@ -10,7 +10,7 @@
     height: 460px;
     background-color: #f2f8f9;
     border-radius: 4px;
-    margin: 12px;
+    margin: 12px 12px 12px 0px;
     padding: 0;
     text-decoration: none;
     z-index: 0;
@@ -24,6 +24,12 @@
 }
 .about__content{
     display: flex;
+    position: relative;
+}
+.about__backBtn{
+    height: 40px;
+    margin: 10px -4px 0px 0px;
+    cursor: pointer;
 }
 .about__right{
     position: relative;

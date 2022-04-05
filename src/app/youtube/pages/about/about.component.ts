@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchItem } from '../../models/search-item.model';
 import { DataService } from '../../services/data.service';
 
@@ -13,10 +13,14 @@ export class AboutComponent implements OnInit {
 
   public id?: string;
 
-  constructor(public route: ActivatedRoute, public dataService: DataService) { }
+  constructor(public route: ActivatedRoute, public dataService: DataService, public router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.dataService.data$.subscribe((values) => this.item = values.find((el) => el.id === this.id));
+  }
+
+  goToMain():void {
+    this.router.navigate(['']);
   }
 }
