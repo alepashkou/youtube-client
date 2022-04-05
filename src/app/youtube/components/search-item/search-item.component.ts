@@ -3,6 +3,7 @@ import {
   Input,
   ChangeDetectionStrategy,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { SearchItem } from '../../models/search-item.model';
 
 @Component({
@@ -13,4 +14,10 @@ import { SearchItem } from '../../models/search-item.model';
 })
 export class SearchItemComponent {
   @Input() item?: SearchItem;
+
+  constructor(public route:Router) {}
+
+  clickToAbout(id:string | undefined) {
+    this.route.navigate(['about/', id]);
+  }
 }
