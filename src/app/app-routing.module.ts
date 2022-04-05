@@ -7,7 +7,7 @@ import { NotfoundComponent } from './core/pages/notfound/notfound.component';
 import { AboutComponent } from './youtube/pages/about/about.component';
 import { SearchResultsComponent } from './youtube/pages/search-results/search-results.component';
 
-const routes: Routes = [{ path: '', component: SearchResultsComponent },
+const routes: Routes = [{ path: '', component: SearchResultsComponent, canActivate: [AuthGuard] },
   { path: 'about/:id', component: AboutComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },

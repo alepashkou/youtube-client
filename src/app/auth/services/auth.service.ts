@@ -6,6 +6,10 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   public isLogged = false;
 
+  constructor() {
+    this.isLogged = !!localStorage.getItem('auth');
+  }
+
   isAuth() {
     return new Promise((resolve) => {
       resolve(this.isLogged);
@@ -13,10 +17,12 @@ export class AuthService {
   }
 
   logIn() {
+    localStorage.setItem('auth', '1');
     this.isLogged = true;
   }
 
   logOut() {
+    localStorage.removeItem('auth');
     this.isLogged = false;
   }
 }
