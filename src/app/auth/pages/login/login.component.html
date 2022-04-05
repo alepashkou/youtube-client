@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-content>
+      <form>
+        <h2>Log In</h2>
+        <mat-form-field>
+          <input matInput placeholder="Login" name="username" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" name="password" required>
+        </mat-form-field>
+        <button (click)="clickToReg($event)" class="login__reg">Registration</button>
+        <button class="login__btn">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
