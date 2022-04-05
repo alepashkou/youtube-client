@@ -1,1 +1,22 @@
-<p>about works!</p>
+<mat-card class="about__card">
+    <div class="about__content">
+        <div class="about__img">
+            <img [src]="this.item?.snippet?.thumbnails?.high?.url" width="730px" height="460">
+        </div>
+        <div class="about__right" appBottomBorder [date]="this.item?.snippet?.publishedAt">
+            <div class="about__title-container">
+                <p class="about__title">{{this.item?.snippet?.title}}</p>
+                <p class="about__date">{{this.item?.snippet?.publishedAt | date:'fullDate'}}</p>
+            </div>
+            <div class="about__desc-container">
+                <p class="about__desc-title">
+                    Description:
+                </p>
+                <p class="about__desc-desc">
+                    {{this.item?.snippet?.localized?.description}}
+                </p>
+            </div>
+            <app-statistics [stat]="this.item?.statistics" class="about__stat"></app-statistics>
+        </div>
+    </div>
+</mat-card>
