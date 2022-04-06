@@ -11,7 +11,7 @@
       <img (click)="changeSortingDisplay()" class="header__settings" src="../../../assets/icons/settings.png" alt="settings" />
     </div>
     <div class="header_login">
-      <p *ngIf="authService.isLogged" class="header__name">{{authService.getName()}}</p>
+      <p *ngIf="authService.isLogged" class="header__name">{{authService.loginName$ | async}}</p>
       <img *ngIf="!authService.isLogged" class="header__login-img" src="../../../assets/login.png" alt="login" />
       <button *ngIf="authService.isLogged" (click)="clickExit()" class="header__exit-btn" header__exit-btn >Exit</button>
     </div>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -6,13 +7,16 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   public isLogged = false;
 
-  public loginName = '';
+  public loginName$?: Observable<string>;
+
+  private loginName$$ = new BehaviorSubject('');
 
   constructor() {
     this.isLogged = !!localStorage.getItem('auth');
     if (this.isLogged) {
+      this.loginName$ = this.loginName$$.asObservable();
       const data = localStorage.getItem('auth') as string;
-      this.loginName = JSON.parse(data).login;
+      this.loginName$$.next(JSON.parse(data).login);
     }
   }
 
@@ -31,9 +35,5 @@ export class AuthService {
   logOut():void {
     localStorage.removeItem('auth');
     this.isLogged = false;
-  }
-
-  getName():string {
-    return this.loginName;
   }
 }
