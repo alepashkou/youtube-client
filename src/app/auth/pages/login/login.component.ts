@@ -23,7 +23,7 @@ export class LoginComponent {
 
   clickToReg(event: Event) {
     event.stopPropagation();
-    this.route.navigate(['registration']);
+    this.route.navigate(['auth', 'registration']);
   }
 
   clickToLogin(event: Event) {

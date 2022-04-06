@@ -29,6 +29,6 @@ export class HeaderComponent {
 
   clickExit():void {
     this.authService.logOut();
-    this.route.navigate(['login']);
+    this.route.navigate(['auth', 'login']);
   }
 }
