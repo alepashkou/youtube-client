@@ -2,6 +2,7 @@ import {
   Component,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { HeaderService } from '../../services/header.service';
 
 @Component({
@@ -12,17 +13,22 @@ import { HeaderService } from '../../services/header.service';
 export class HeaderComponent {
   sortingDisplay = false;
 
-  constructor(private headerService: HeaderService, public route: Router) {}
+  constructor(private headerService: HeaderService, public route: Router, public authService:AuthService) {}
 
-  changeSearch(value:string) {
+  changeSearch(value:string):void {
     this.headerService.changeSearch(value);
   }
 
-  changeSortingDisplay() {
+  changeSortingDisplay():void {
     this.sortingDisplay = !this.sortingDisplay;
   }
 
-  goToMain() {
+  goToMain():void {
     this.route.navigate(['']);
+  }
+
+  clickExit():void {
+    this.authService.logOut();
+    this.route.navigate(['login']);
   }
 }
