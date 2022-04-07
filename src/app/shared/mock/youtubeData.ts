@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { SearchResponse } from '../../youtube/models/search-response.model';
 
 export const youtubeData: SearchResponse = {
