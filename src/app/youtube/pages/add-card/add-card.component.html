@@ -1,20 +1,20 @@
 <mat-card>
     <mat-card-content>
-      <form>
+      <form [formGroup]="this.form" (ngSubmit)="onSubmit()">
         <h2>Create new card</h2>
         <mat-form-field>
-          <input matInput placeholder="Title" name="title" required>
+          <input matInput placeholder="Title" name="title" required formControlName="title">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Discription" name="discription" required>
+          <input matInput placeholder="Discription" name="discription" required formControlName="discription">
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Img" name="img" required>
+          <input matInput placeholder="Img" name="img" required formControlName="img">
         </mat-form-field>
         <mat-form-field>
-          <input matInput  placeholder="Link video" name="linkVideo" required>
+          <input matInput  placeholder="Link video" name="linkVideo" required formControlName="linkVideo">
         </mat-form-field>
-        <button  class="addCard__btn">Create card</button>
+        <button  class="addCard__btn" [disabled]="form.invalid">Create card</button>
       </form>
     </mat-card-content>
   </mat-card>
