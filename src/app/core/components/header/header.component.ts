@@ -16,6 +16,7 @@ export class HeaderComponent {
   constructor(private headerService: HeaderService, public route: Router, public authService:AuthService) {}
 
   changeSearch(value:string):void {
+    this.route.navigate(['']);
     this.headerService.changeSearch(value);
     this.goToMain();
   }
@@ -31,5 +32,9 @@ export class HeaderComponent {
   clickExit():void {
     this.authService.logOut();
     this.route.navigate(['auth', 'login']);
+  }
+
+  clickAdd():void {
+    this.route.navigate(['add']);
   }
 }
