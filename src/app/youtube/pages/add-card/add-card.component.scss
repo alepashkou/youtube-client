@@ -24,4 +24,8 @@ mat-form-field {
     &:hover{
         background: #5298f3;
     }
+    &:disabled{
+        background: #b9b5b5;
+        filter: none;
+    }
 }
