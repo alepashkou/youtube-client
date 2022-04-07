@@ -9,6 +9,7 @@
       />
       <button class="header__btn" (click)="changeSearch(searchTextBox.value)">search</button>
       <img (click)="changeSortingDisplay()" class="header__settings" src="../../../assets/icons/settings.png" alt="settings" />
+      <mat-icon *ngIf="authService.isLogged" class="header__add" (click)="clickAdd()">add_to_photos</mat-icon>
     </div>
     <div class="header_login">
       <p *ngIf="authService.isLogged" class="header__name">{{authService.loginName$ | async}}</p>

@@ -58,3 +58,12 @@
   .header__exit-btn:hover {
     background: #5ea2ff;
   }
+  .header__add{
+    margin-left: 10px;
+    color: #2f80ed;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    &:hover {
+      color: #5ea2ff;
+    }
+  }
