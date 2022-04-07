@@ -11,6 +11,6 @@ export class RegistrationComponent {
 
   clickToLogin(event: Event) {
     event.stopPropagation();
-    this.route.navigate(['login']);
+    this.route.navigate(['auth', 'login']);
   }
 }
