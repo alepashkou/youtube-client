@@ -13,10 +13,9 @@ export class AuthService {
 
   constructor() {
     this.isLogged = !!localStorage.getItem('auth');
+    this.loginName$ = this.loginName$$.asObservable();
     if (this.isLogged) {
-      this.loginName$ = this.loginName$$.asObservable();
-      const data = localStorage.getItem('auth') as string;
-      this.loginName$$.next(JSON.parse(data).login);
+      this.setName();
     }
   }
 
@@ -30,10 +29,16 @@ export class AuthService {
     const auth = JSON.stringify({ login, token });
     localStorage.setItem('auth', auth);
     this.isLogged = true;
+    this.setName();
   }
 
   logOut():void {
     localStorage.removeItem('auth');
     this.isLogged = false;
+  }
+
+  setName():void {
+    const data = localStorage.getItem('auth') as string;
+    this.loginName$$.next(JSON.parse(data).login);
   }
 }
