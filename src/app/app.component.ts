@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { SearchItem } from './youtube/models/search-item.model';
-import { youtubeData } from './shared/mock/youtubeData';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +7,4 @@ import { youtubeData } from './shared/mock/youtubeData';
 })
 export class AppComponent {
   title = 'youtube';
-
-  data: SearchItem[] = youtubeData.items;
 }

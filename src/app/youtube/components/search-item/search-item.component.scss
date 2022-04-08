@@ -21,38 +21,34 @@
       cursor: pointer;
     }
   }
-  .search__card-img {
-    width: 250px;
-    height: 150px;
-    padding: 20px 20px 0px 20px;
-  }
-  .search__card-content {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  .search__card-title {
-    font-size: 20px;
-  }
-  .search__card-btn {
-    position: absolute;
-    bottom: 20px;
-    left: 80px;
-    background: #2f80ed;
-    border-radius: 5px;
-    border: 0px;
-    width: 120px;
-    height: 32px;
-    filter: drop-shadow(2px 0px 4px #2f80ed);
-    cursor: pointer;
-    transition-duration: 0.4s;
-    color: white;
-    margin: 0 auto;
-  }
-  .search__card-btn:hover {
-    background: #5298f3;
-  }
-  .green__border {
-    border-bottom-color: green;
-  }
-  
+.search__card-img {
+  width: 250px;
+  height: 150px;
+  padding: 20px 20px 0px 20px;
+}
+.search__card-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.search__card-title {
+  font-size: 20px;
+}
+.search__card-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 80px;
+  background: #2f80ed;
+  border-radius: 5px;
+  border: 0px;
+  width: 120px;
+  height: 32px;
+  filter: drop-shadow(2px 0px 4px #2f80ed);
+  cursor: pointer;
+  transition-duration: 0.4s;
+  color: white;
+  margin: 0 auto;
+}
+.search__card-btn:hover {
+  background: #5298f3;
+}

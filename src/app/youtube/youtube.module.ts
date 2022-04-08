@@ -5,7 +5,7 @@ import { SearchResultsComponent } from './pages/search-results/search-results.co
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { FilterPipe } from './pipes/filter.pipe';
-import { SortPipe } from './pipes/sort.pipe';
+import { SortingPipe } from './pipes/sorting.pipe';
 import { SharedModule } from '../shared/shared.module';
 import { BottomBorderDirective } from './directives/bottom-border.directive';
 import { AboutComponent } from './pages/about/about.component';
@@ -19,7 +19,7 @@ const routes: Routes = [{ path: '', component: SearchResultsComponent },
     SearchItemComponent,
     StatisticsComponent,
     FilterPipe,
-    SortPipe,
+    SortingPipe,
     BottomBorderDirective,
     AboutComponent,
   ],

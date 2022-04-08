@@ -2,8 +2,7 @@ mat-card {
     max-width: 400px;
     margin: 2em auto;
     text-align: center;
-}
-  
+} 
 mat-form-field {
     display: block;
 }
@@ -39,6 +38,7 @@ mat-form-field {
     color: white;
     margin: 0 auto;
     margin-right: 20px;
+
     &:hover{
         background: #5298f3;
     }

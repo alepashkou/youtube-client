@@ -11,12 +11,13 @@ import { HeaderService } from '../../services/header.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  sortingDisplay = false;
+  public sortingDisplay = false;
 
   constructor(private headerService: HeaderService, public route: Router, public authService:AuthService) {}
 
   changeSearch(value:string):void {
     this.headerService.changeSearch(value);
+    this.goToMain();
   }
 
   changeSortingDisplay():void {
