@@ -1,7 +1,7 @@
-<mat-toolbar class="container">
-    <span class="sortingBy">Sorting by:</span>
-    <a class="sorting" (click)="changeSortingDate()" [ngClass]="{'upArrow': this.sorting==='date', 'downArrow': this.sorting==='-date'}">date</a>
-    <a class="sorting" (click)="changeSortingViews()" [ngClass]="{'upArrow': this.sorting==='views', 'downArrow': this.sorting==='-views'}">count of views</a>
-    <span class="filter">by word or sentance</span>
+<mat-toolbar class="filter__container">
+    <span class="filter__sortingBy">Sorting by:</span>
+    <a class="filter__sorting" (click)="changeSortingDate()" [ngClass]="{'upArrow': this.sorting==='date', 'downArrow': this.sorting==='-date'}">date</a>
+    <a class="filter__sorting" (click)="changeSortingViews()" [ngClass]="{'upArrow': this.sorting==='views', 'downArrow': this.sorting==='-views'}">count of views</a>
+    <span class="filter__filter">by word or sentance</span>
     <input type="text" (input)="changeFilter($event)">
 </mat-toolbar>

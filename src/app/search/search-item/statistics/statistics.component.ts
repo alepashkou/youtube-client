@@ -7,5 +7,5 @@ import { StatisticsItem } from '../../search-item.model';
   styleUrls: ['./statistics.component.scss'],
 })
 export class StatisticsComponent {
-  @Input() stat?: StatisticsItem;
+  @Input() statistics?: StatisticsItem;
 }

@@ -10,9 +10,9 @@ export class FilterComponent {
 
   @Output() FilterEvent = new EventEmitter<string>();
 
-  sorting:string = '';
+  sorting: string = '';
 
-  filter:string = '';
+  filter: string = '';
 
   changeSortingDate() {
     if (this.sorting === 'date') {

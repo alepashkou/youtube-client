@@ -3,11 +3,11 @@
       <img src="../../../assets/logo.png" alt="logo" />
       <input
         type="text"
-        class="header__input"
+        class="header__search-input"
         placeholder="What are you want to find out"
         #searchTextBox
       />
-      <button class="header__btn" (click)="changeSearch(searchTextBox.value)">search</button>
+      <button class="header__search-btn" (click)="changeSearch(searchTextBox.value)">search</button>
       <img (click)="changeSortingDisplay()" class="header__settings" src="../../../assets/icons/settings.png" alt="settings" />
     </div>
     <div class="header_login">

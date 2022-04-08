@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { SearchItem } from 'src/app/search/search-item.model';
 
 @Pipe({
-  name: 'sortPipe',
+  name: 'sortingPipe',
 })
-export class SortPipe implements PipeTransform {
+export class SortingPipe implements PipeTransform {
   sortered: SearchItem[] = [];
 
   transform(list:SearchItem[], sort:string = ''): SearchItem[] {

@@ -14,11 +14,11 @@ export class HeaderComponent {
 
   sortingDisplay = false;
 
-  changeSearch(value:string) {
+  changeSearch(value:string):void {
     this.SearchEvent.emit(value);
   }
 
-  changeSortingDisplay() {
+  changeSortingDisplay():void {
     this.sortingDisplay = !this.sortingDisplay;
     this.SortingDisplayEvent.emit(this.sortingDisplay);
   }

@@ -16,23 +16,23 @@ export class AppComponent {
 
   filterDisplay = false;
 
-  sort:string = '';
+  sorting: string = '';
 
-  filter:string = '';
+  filter: string = '';
 
-  changeSearch(event:string) {
+  changeSearch(event:string):void {
     this.search = event;
   }
 
-  changeDisplay(event:boolean) {
+  changeDisplay(event:boolean):void {
     this.filterDisplay = event;
   }
 
-  changeFilter(event:string) {
+  changeFilter(event:string):void {
     this.filter = event;
   }
 
-  changeSort(event:string) {
-    this.sort = event;
+  changeSort(event:string):void {
+    this.sorting = event;
   }
 }

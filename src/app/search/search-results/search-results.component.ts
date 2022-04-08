@@ -13,11 +13,11 @@ import { SearchItem } from '../search-item.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchResultsComponent {
-  @Input() data?: SearchItem[];
+  @Input() data: SearchItem[] | undefined;
 
-  @Input() search?: string;
+  @Input() search: string = '';
 
-  @Input() filter?: string;
+  @Input() filter: string = '';
 
-  @Input() sort?: string;
+  @Input() sorting: string = '';
 }

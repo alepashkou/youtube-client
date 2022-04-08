@@ -1,4 +1,4 @@
-.container{
+.filter__container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,23 +8,23 @@
   font-size: 12px;
   line-height: 14px;
 }
-.sortingBy{
+.filter__sortingBy{
   color: #929292;
 }
-.sorting, .filter{
+.filter__sorting, .filter__filter{
   margin-left: 21px;
   text-decoration-line: underline;
   color: #2F80ED;
   cursor: pointer;
+}
+.filter__filter{
+  margin-right: 10px;
+  text-decoration-line: none;
+  cursor: default;
 }
 .downArrow::after{
   content: " ↓"
 }
 .upArrow::after{
   content: " ↑"
-}
-.filter{
-  margin-right: 10px;
-  text-decoration-line: none;
-  cursor: default;
 }

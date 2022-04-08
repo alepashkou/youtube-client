@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material/material.module';
 import { FilterPipe } from './pipes/filter.pipe';
 import { BottomBorderDirective } from './directives/bottom-border.directive';
-import { SortPipe } from './pipes/sort.pipe';
+import { SortingPipe } from './pipes/sorting.pipe';
 
 @NgModule({
-  declarations: [FilterPipe, BottomBorderDirective, SortPipe],
+  declarations: [FilterPipe, BottomBorderDirective, SortingPipe],
   imports: [
     CommonModule,
     MaterialModule,
   ],
-  exports: [MaterialModule, FilterPipe, SortPipe, BottomBorderDirective],
+  exports: [MaterialModule, FilterPipe, SortingPipe, BottomBorderDirective],
 })
 export class SharedModule { }
