@@ -15,6 +15,7 @@ import { AddCardComponent } from './pages/add-card/add-card.component';
 const routes: Routes = [
   { path: '', component: SearchResultsComponent },
   { path: 'about/:id', component: AboutComponent, canActivate: [AuthGuard] },
+  { path: 'add', component: AddCardComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

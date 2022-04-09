@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './add-card.component.html',
   styleUrls: ['./add-card.component.scss'],
 })
-export class AddCardComponent implements OnInit {
+export class AddCardComponent {
   form:FormGroup;
 
   constructor() {
@@ -16,9 +16,6 @@ export class AddCardComponent implements OnInit {
       img: new FormControl(''),
       linkVideo: new FormControl(''),
     });
-  }
-
-  ngOnInit(): void {
   }
 
   onSubmit() {
