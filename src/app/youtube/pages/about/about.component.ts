@@ -9,9 +9,9 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
-  public item?:SearchItem;
+  public item?: SearchItem;
 
-  public id?: string;
+  public id: string;
 
   constructor(public route: ActivatedRoute, public dataService: DataService, public router: Router) { }
 

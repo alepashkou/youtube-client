@@ -19,7 +19,7 @@ export class SearchResultsComponent implements OnInit {
   sort: string = '';
 
   constructor(public headerService: HeaderService, public dataService: DataService) {
-    this.headerService.sort$.subscribe((value) => this.sort = value);
+    this.headerService.sorting$.subscribe((value) => this.sort = value);
     this.headerService.filter$.subscribe((value) => this.filter = value);
   }
 

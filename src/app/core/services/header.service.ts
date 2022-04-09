@@ -9,9 +9,9 @@ export class HeaderService {
 
   private search$$ = new BehaviorSubject('');
 
-  public sort$: Observable<string>;
+  public sorting$: Observable<string>;
 
-  private sort$$ = new BehaviorSubject('');
+  private sorting$$ = new BehaviorSubject('');
 
   public filter$: Observable<string>;
 
@@ -19,7 +19,7 @@ export class HeaderService {
 
   constructor() {
     this.search$ = this.search$$.asObservable();
-    this.sort$ = this.sort$$.asObservable();
+    this.sorting$ = this.sorting$$.asObservable();
     this.filter$ = this.filter$$.asObservable();
   }
 
@@ -27,8 +27,8 @@ export class HeaderService {
     this.search$$.next(value);
   }
 
-  changeSort(value:string):void {
-    this.sort$$.next(value);
+  changeSorting(value:string):void {
+    this.sorting$$.next(value);
   }
 
   changeFilter(value:string):void {

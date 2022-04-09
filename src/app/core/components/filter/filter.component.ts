@@ -13,13 +13,17 @@ export class FilterComponent {
 
   constructor(private headerService: HeaderService) {}
 
+  generateArrowStyle(sortType:string) {
+    return { upArrow: this.sorting === sortType, downArrow: this.sorting === `-${sortType}` };
+  }
+
   changeSortingDate() {
     if (this.sorting === 'date') {
       this.sorting = '-date';
     } else {
       this.sorting = 'date';
     }
-    this.headerService.changeSort(this.sorting);
+    this.headerService.changeSorting(this.sorting);
   }
 
   changeSortingViews() {
@@ -28,7 +32,7 @@ export class FilterComponent {
     } else {
       this.sorting = 'views';
     }
-    this.headerService.changeSort(this.sorting);
+    this.headerService.changeSorting(this.sorting);
   }
 
   changeFilter(event: Event) {

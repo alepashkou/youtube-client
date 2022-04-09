@@ -13,13 +13,11 @@ import { SearchItem } from '../../models/search-item.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchItemComponent {
-  @Input() item?: SearchItem;
+  @Input() item: SearchItem;
 
   constructor(public route:Router) {}
 
-  clickToAbout(id:string | undefined) {
-    if (id) {
-      this.route.navigate(['about/', id]);
-    }
+  clickToAbout(id:string) {
+    this.route.navigate(['about/', id]);
   }
 }

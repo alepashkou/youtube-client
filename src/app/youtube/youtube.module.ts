@@ -11,8 +11,11 @@ import { BottomBorderDirective } from './directives/bottom-border.directive';
 import { AboutComponent } from './pages/about/about.component';
 import { AuthGuard } from '../auth/guards/auth.guard';
 
-const routes: Routes = [{ path: '', component: SearchResultsComponent },
-  { path: 'about/:id', component: AboutComponent, canActivate: [AuthGuard] }];
+const routes: Routes = [
+  { path: '', component: SearchResultsComponent },
+  { path: 'about/:id', component: AboutComponent, canActivate: [AuthGuard] },
+];
+
 @NgModule({
   declarations: [
     SearchResultsComponent,
