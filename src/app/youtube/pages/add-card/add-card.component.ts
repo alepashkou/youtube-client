@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-card',
@@ -7,18 +10,35 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./add-card.component.scss'],
 })
 export class AddCardComponent {
-  form:FormGroup;
+  addCardForm: FormGroup;
 
-  constructor() {
-    this.form = new FormGroup({
-      title: new FormControl(''),
-      discription: new FormControl(''),
-      img: new FormControl(''),
-      linkVideo: new FormControl(''),
+  urlRegex: string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+
+  currentDate: number = Date.now();
+
+  constructor(public router: Router) {
+    this.addCardForm = new FormGroup({
+      title: new FormControl('', [Validators.minLength(3), Validators.maxLength(15)]),
+      discription: new FormControl('', [Validators.maxLength(255)]),
+      img: new FormControl('', [Validators.pattern(this.urlRegex)]),
+      video: new FormControl('', [Validators.pattern(this.urlRegex)]),
+      date: new FormControl('', [this.checkDate()]),
     });
   }
 
+  checkDate():ValidatorFn {
+    return (control: AbstractControl):ValidationErrors | null => {
+      if (control.value instanceof Date) {
+        const pickDate = control.value.getTime();
+        if (this.currentDate > pickDate) {
+          return { dateErr: true };
+        }
+      }
+      return null;
+    };
+  }
+
   onSubmit() {
-    console.log('submit', this.form);
+    this.router.navigate(['']);
   }
 }
