@@ -8,18 +8,18 @@ import {
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @Output() SearchEvent = new EventEmitter<string>();
+  @Output() searchChangeBy = new EventEmitter<string>();
 
-  @Output() SortingDisplayEvent = new EventEmitter<boolean>();
+  @Output() sortingChangeBy = new EventEmitter<boolean>();
 
   sortingDisplay = false;
 
   changeSearch(value:string):void {
-    this.SearchEvent.emit(value);
+    this.searchChangeBy.emit(value);
   }
 
   changeSortingDisplay():void {
     this.sortingDisplay = !this.sortingDisplay;
-    this.SortingDisplayEvent.emit(this.sortingDisplay);
+    this.sortingChangeBy.emit(this.sortingDisplay);
   }
 }

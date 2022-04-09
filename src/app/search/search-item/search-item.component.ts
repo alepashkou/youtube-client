@@ -12,5 +12,5 @@ import { SearchItem } from '../search-item.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchItemComponent {
-  @Input() item: SearchItem | undefined;
+  @Input() item: SearchItem;
 }

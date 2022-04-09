@@ -1,17 +1,16 @@
 <mat-card
   class="search__card"
-  appBottomBorder
-  [date]="item?.snippet?.publishedAt"
+  [appBottomBorderColor]="item.snippet.publishedAt"
 >
   <img
     mat-card-image
     class="search__card-img"
-    [src]="item?.snippet?.thumbnails?.high?.url"
-    [alt]="item?.snippet?.title"
+    [src]="item.snippet.thumbnails.high.url"
+    [alt]="item.snippet.title"
   />
-<app-statistics [statistics]="item?.statistics"></app-statistics>
+<app-statistics [statistics]="item.statistics"></app-statistics>
   <mat-card-title class="search__card-title">{{
-    item?.snippet?.title
+    item.snippet.title
   }}</mat-card-title>
   <button class="search__card-btn">more...</button>
 </mat-card>

@@ -20,19 +20,19 @@ export class AppComponent {
 
   filter: string = '';
 
-  changeSearch(event:string):void {
-    this.search = event;
+  changeSearch(value:string):void {
+    this.search = value;
   }
 
-  changeDisplay(event:boolean):void {
-    this.filterDisplay = event;
+  changeDisplay(visible:boolean):void {
+    this.filterDisplay = visible;
   }
 
-  changeFilter(event:string):void {
-    this.filter = event;
+  changeFilter(value:string):void {
+    this.filter = value;
   }
 
-  changeSort(event:string):void {
-    this.sorting = event;
+  changeSort(value:string):void {
+    this.sorting = value;
   }
 }

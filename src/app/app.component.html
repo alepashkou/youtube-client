@@ -1,3 +1,3 @@
-<app-header (SearchEvent)="changeSearch($event)" (SortingDisplayEvent)="changeDisplay($event)"></app-header>
-<app-filter *ngIf="filterDisplay" (SortEvent)="changeSort($event)" (FilterEvent)="changeFilter($event)"></app-filter>
+<app-header (searchChangeBy)="changeSearch($event)" (sortingChangeBy)="changeDisplay($event)"></app-header>
+<app-filter *ngIf="filterDisplay" (sortChangeBy)="changeSort($event)" (filterChangeBy)="changeFilter($event)"></app-filter>
 <app-search-results [data]="data" [search]="search" [filter]="filter" [sorting]="sorting"></app-search-results>
