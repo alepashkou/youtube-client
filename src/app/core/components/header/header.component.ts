@@ -35,6 +35,6 @@ export class HeaderComponent {
   }
 
   clickAdd():void {
-    this.route.navigate(['add']);
+    this.route.navigate(['admin', 'add']);
   }
 }

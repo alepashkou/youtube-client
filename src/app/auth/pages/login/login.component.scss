@@ -2,9 +2,10 @@ mat-card {
     max-width: 400px;
     margin: 2em auto;
     text-align: center;
-} 
+}
 mat-form-field {
     display: block;
+    margin: 25px 0;
 }
 .login__btn{
     bottom: 20px;
@@ -23,8 +24,13 @@ mat-form-field {
     &:hover{
         background: #12a844;
     }
+
+    &:disabled{
+      background: #b9b5b5;
+      filter: none;
+  }
 }
-.login__reg{
+.login__reg {
     bottom: 20px;
     left: 80px;
     background: #2f80ed;
@@ -38,7 +44,7 @@ mat-form-field {
     color: white;
     margin: 0 auto;
     margin-right: 20px;
-
+    margin-top: 20px;
     &:hover{
         background: #5298f3;
     }

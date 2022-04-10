@@ -1,15 +1,23 @@
 <mat-card>
     <mat-card-content>
-      <form>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h2>Log In</h2>
         <mat-form-field>
-          <input [(ngModel)]="loginData.login" matInput placeholder="Login" name="username" required>
+          <input matInput placeholder="Login" name="login" required formControlName="login">
+          <mat-error *ngIf="loginForm.get('login')?.hasError('required')">Please enter a login email</mat-error>
+          <mat-error *ngIf="loginForm.get('login')?.hasError('email')">The login email is invalid</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput [(ngModel)]="loginData.password" type="password" placeholder="Password" name="password" required autocomplete>
+          <input matInput type="password" placeholder="Password" name="password" required autocomplete formControlName="password">
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Please enter a password</mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('isSmall')">Your password isn't strong enough lowercase letters</mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('isBig')">Your password isn't strong enough uppercase letters</mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('isDigits')">Your password isn't strong enough digits</mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('isSpecials')">Your password isn't strong enough one special character</mat-error>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('isLength')">Your password isn't strong enough at least 8 characters</mat-error>
         </mat-form-field>
         <button (click)="clickToReg($event)" class="login__reg">Registration</button>
-        <button class="login__btn" (click)="clickToLogin($event)">Login</button>
+        <button class="login__btn" [disabled]="loginForm.invalid">Login</button>
       </form>
     </mat-card-content>
   </mat-card>

@@ -10,11 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-card.component.scss'],
 })
 export class AddCardComponent {
-  addCardForm: FormGroup;
+  public addCardForm: FormGroup;
 
-  urlRegex: string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+  public urlRegex: string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
 
-  currentDate: number = Date.now();
+  public currentDate: number = Date.now();
 
   constructor(public router: Router) {
     this.addCardForm = new FormGroup({
