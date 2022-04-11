@@ -15,9 +15,9 @@ import { SearchItem } from '../../models/search-item.model';
 export class SearchItemComponent {
   @Input() item: SearchItem;
 
-  constructor(public route:Router) {}
+  constructor(private router:Router) {}
 
-  clickToAbout(id:string) {
-    this.route.navigate(['about/', id]);
+  public clickToAbout(id:string) {
+    this.router.navigate(['about/', id]);
   }
 }

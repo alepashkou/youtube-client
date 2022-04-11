@@ -19,25 +19,25 @@ export class AuthService {
     }
   }
 
-  isAuth():Promise<boolean> {
+  public isAuth():Promise<boolean> {
     return new Promise((resolve) => {
       resolve(this.isLogged);
     });
   }
 
-  logIn(login:string, token:string):void {
+  public logIn(login:string, token:string):void {
     const auth = JSON.stringify({ login, token });
     localStorage.setItem('auth', auth);
     this.isLogged = true;
     this.setName();
   }
 
-  logOut():void {
+  public logOut():void {
     localStorage.removeItem('auth');
     this.isLogged = false;
   }
 
-  setName():void {
+  public setName():void {
     const data = localStorage.getItem('auth') as string;
     this.loginName$$.next(JSON.parse(data).login);
   }

@@ -5,7 +5,7 @@ import { SearchItem } from 'src/app/youtube/models/search-item.model';
   name: 'filterPipe',
 })
 export class FilterPipe implements PipeTransform {
-  filtered: SearchItem[] = [];
+  public filtered: SearchItem[] = [];
 
   transform(list?:SearchItem[], filter:string = ''): SearchItem[] {
     if (list) {

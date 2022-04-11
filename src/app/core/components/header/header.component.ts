@@ -13,28 +13,28 @@ import { HeaderService } from '../../services/header.service';
 export class HeaderComponent {
   public sortingDisplay = false;
 
-  constructor(private headerService: HeaderService, public route: Router, public authService:AuthService) {}
+  constructor(private headerService:HeaderService, private route: Router, public authService:AuthService) {}
 
-  changeSearch(value:string):void {
+  public changeSearch(value:string):void {
     this.route.navigate(['']);
     this.headerService.changeSearch(value);
     this.goToMain();
   }
 
-  changeSortingDisplay():void {
+  public changeSortingDisplay():void {
     this.sortingDisplay = !this.sortingDisplay;
   }
 
-  goToMain():void {
+  public goToMain():void {
     this.route.navigate(['']);
   }
 
-  clickExit():void {
+  public clickExit():void {
     this.authService.logOut();
     this.route.navigate(['auth', 'login']);
   }
 
-  clickAdd():void {
+  public clickAdd():void {
     this.route.navigate(['admin', 'add']);
   }
 }

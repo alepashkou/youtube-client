@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent {
-  constructor(public route:Router) {}
+  constructor(private route:Router) {}
 
-  clickToLogin(event: Event) {
+  public clickToLogin(event: Event) {
     event.stopPropagation();
     this.route.navigate(['auth', 'login']);
   }

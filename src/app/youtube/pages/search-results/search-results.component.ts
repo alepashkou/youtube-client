@@ -12,13 +12,13 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit {
-  data: SearchItem[] = [];
+  public data: SearchItem[] = [];
 
-  filter: string = '';
+  public filter: string = '';
 
-  sort: string = '';
+  public sort: string = '';
 
-  constructor(public headerService: HeaderService, public dataService: DataService) {
+  constructor(public headerService: HeaderService, private dataService: DataService) {
     this.headerService.sorting$.subscribe((value) => this.sort = value);
     this.headerService.filter$.subscribe((value) => this.filter = value);
   }

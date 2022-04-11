@@ -12,11 +12,11 @@ import { Router } from '@angular/router';
 export class AddCardComponent {
   public addCardForm: FormGroup;
 
-  public urlRegex: string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+  private readonly urlRegex: string = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
 
-  public currentDate: number = Date.now();
+  private readonly currentDate: number = Date.now();
 
-  constructor(public router: Router) {
+  constructor(private router: Router) {
     this.addCardForm = new FormGroup({
       title: new FormControl('', [Validators.minLength(3), Validators.maxLength(15)]),
       discription: new FormControl('', [Validators.maxLength(255)]),
@@ -26,7 +26,7 @@ export class AddCardComponent {
     });
   }
 
-  checkDate():ValidatorFn {
+  private checkDate():ValidatorFn {
     return (control: AbstractControl):ValidationErrors | null => {
       if (control.value instanceof Date) {
         const pickDate = control.value.getTime();
@@ -38,7 +38,7 @@ export class AddCardComponent {
     };
   }
 
-  onSubmit() {
+  public onSubmit() {
     this.router.navigate(['']);
   }
 }

@@ -7,17 +7,17 @@ import { HeaderService } from '../../services/header.service';
   styleUrls: ['./filter.component.scss'],
 })
 export class FilterComponent {
-  sorting:string = '';
+  public sorting: string = '';
 
-  filter:string = '';
+  public filter: string = '';
 
   constructor(private headerService: HeaderService) {}
 
-  generateArrowStyle(sortType:string) {
+  public generateArrowStyle(sortType:string) {
     return { upArrow: this.sorting === sortType, downArrow: this.sorting === `-${sortType}` };
   }
 
-  changeSortingDate() {
+  public changeSortingDate() {
     if (this.sorting === 'date') {
       this.sorting = '-date';
     } else {
@@ -26,7 +26,7 @@ export class FilterComponent {
     this.headerService.changeSorting(this.sorting);
   }
 
-  changeSortingViews() {
+  public changeSortingViews() {
     if (this.sorting === 'views') {
       this.sorting = '-views';
     } else {
@@ -35,7 +35,7 @@ export class FilterComponent {
     this.headerService.changeSorting(this.sorting);
   }
 
-  changeFilter(event: Event) {
+  public changeFilter(event: Event) {
     this.filter = (<HTMLInputElement>event.target).value;
     this.headerService.changeFilter(this.filter);
   }

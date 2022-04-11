@@ -5,7 +5,7 @@ import { SearchItem } from 'src/app/youtube/models/search-item.model';
   name: 'sortingPipe',
 })
 export class SortingPipe implements PipeTransform {
-  sortered: SearchItem[] = [];
+  public sortered: SearchItem[] = [];
 
   transform(list:SearchItem[], sort:string = ''): SearchItem[] {
     if (sort === '') {

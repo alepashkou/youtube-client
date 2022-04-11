@@ -13,34 +13,34 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
   public loginForm: FormGroup;
 
-  public simpleToken: string = 'ggggggGGGggGGksdfjndndfjklnhjibnvgdjdlkgmnh;dgkfjhioptuy';
+  private simpleToken: string = 'ggggggGGGggGGksdfjndndfjklnhjibnvgdjdlkgmnh;dgkfjhioptuy';
 
-  s_letters = 'qwertyuiopasdfghjklzxcvbnm';
+  private readonly s_letters = 'qwertyuiopasdfghjklzxcvbnm';
 
-  b_letters = 'QWERTYUIOPLKJHGFDSAZXCVBNM';
+  private readonly b_letters = 'QWERTYUIOPLKJHGFDSAZXCVBNM';
 
-  digits = '0123456789';
+  private readonly digits = '0123456789';
 
-  specials = '1!@#$%^&*()_-+=.,:;[]{}';
+  private readonly specials = '1!@#$%^&*()_-+=.,:;[]{}';
 
-  constructor(public route:Router, public authService: AuthService) {
+  constructor(private route:Router, private authService: AuthService) {
     this.loginForm = new FormGroup({
       login: new FormControl('', [Validators.email]),
       password: new FormControl('', [this.checkPassword()]),
     });
   }
 
-  clickToReg(event: Event) {
+  public clickToReg(event: Event) {
     event.stopPropagation();
     this.route.navigate(['auth', 'registration']);
   }
 
-  onSubmit() {
+  public onSubmit() {
     this.authService.logIn(this.loginForm.get('login')?.value, this.simpleToken);
     this.route.navigate(['']);
   }
 
-  checkPassword():ValidatorFn {
+  private checkPassword():ValidatorFn {
     return (control: AbstractControl):ValidationErrors | null => {
       const password = control.value;
       if (password.length === 0) {

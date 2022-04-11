@@ -13,14 +13,14 @@ export class AboutComponent implements OnInit {
 
   public id: string;
 
-  constructor(public route: ActivatedRoute, public dataService: DataService, public router: Router) { }
+  constructor(public route: ActivatedRoute, public dataService: DataService, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.dataService.data$.subscribe((values) => this.item = values.find((el) => el.id === this.id));
   }
 
-  goToMain():void {
+  public goToMain():void {
     this.router.navigate(['']);
   }
 }
