@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
-  Observable, BehaviorSubject, map, mergeMap,
+  Observable, map, mergeMap, Subject,
 } from 'rxjs';
-import { youtubeData } from 'src/app/shared/mock/youtubeData';
 import { SearchItem } from '../models/search-item.model';
 
 @Injectable({
@@ -12,7 +11,7 @@ import { SearchItem } from '../models/search-item.model';
 export class DataService {
   public data$: Observable<SearchItem[]>;
 
-  private data$$ = new BehaviorSubject(youtubeData.items);
+  private data$$ = new Subject<SearchItem[]>();
 
   constructor(public http:HttpClient) {
     this.data$ = this.data$$.asObservable();
