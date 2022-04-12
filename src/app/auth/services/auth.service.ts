@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -19,10 +19,8 @@ export class AuthService {
     }
   }
 
-  public isAuth():Promise<boolean> {
-    return new Promise((resolve) => {
-      resolve(this.isLogged);
-    });
+  public isAuth():Observable<boolean> {
+    return of(this.isLogged);
   }
 
   public logIn(login:string, token:string):void {

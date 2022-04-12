@@ -5,6 +5,7 @@
         type="text"
         class="header__search-input"
         placeholder="What are you want to find out"
+        (input)="changeSearch(searchTextBox.value)"
         #searchTextBox
       />
       <button class="header__search-btn" (click)="changeSearch(searchTextBox.value)">search</button>

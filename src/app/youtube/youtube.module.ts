@@ -31,7 +31,5 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes),
   ],
-  exports: [],
-  bootstrap: [],
 })
 export class YoutubeModule { }

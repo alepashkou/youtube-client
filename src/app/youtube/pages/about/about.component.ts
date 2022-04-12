@@ -17,7 +17,8 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.dataService.data$.subscribe((values) => this.item = values.find((el) => el.id === this.id));
+    this.dataService.data$
+      .subscribe((values) => this.item = values.find((el) => el.id === this.id));
   }
 
   public goToMain():void {
