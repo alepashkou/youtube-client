@@ -1,7 +1,9 @@
 import {
   Component,
 } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { debounceTime, filter } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DataService } from 'src/app/youtube/services/data.service';
 import { HeaderService } from '../../services/header.service';
@@ -14,17 +16,26 @@ import { HeaderService } from '../../services/header.service';
 export class HeaderComponent {
   public sortingDisplay = false;
 
+  public search: FormControl = new FormControl('');
+
   constructor(
     private headerService:HeaderService,
     private route: Router,
     public authService: AuthService,
     private data: DataService,
-  ) {}
+  ) {
+    this.search.valueChanges.pipe(
+      debounceTime(400),
+      filter((value: string) => (value.length > 3)),
+    )
+      .subscribe((query) => {
+        this.data.getData(query);
+      });
+  }
 
   public changeSearch(value:string):void {
     this.headerService.changeSearch(value);
     this.goToMain();
-    this.data.getData(value);
   }
 
   public changeSortingDisplay():void {

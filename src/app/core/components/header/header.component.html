@@ -7,6 +7,7 @@
         placeholder="What are you want to find out"
         (input)="changeSearch(searchTextBox.value)"
         #searchTextBox
+        [formControl]="search"
       />
       <button class="header__search-btn" (click)="changeSearch(searchTextBox.value)">search</button>
       <img (click)="changeSortingDisplay()" class="header__settings" src="assets/icons/settings.png" alt="settings" />
