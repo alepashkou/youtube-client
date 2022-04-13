@@ -30,7 +30,7 @@ export class HeaderComponent {
     )
       .subscribe((query) => {
         this.goToMain();
-        this.data.getData(query);
+        this.data.getDataList(query);
         this.headerService.changeSearch(query);
       });
   }

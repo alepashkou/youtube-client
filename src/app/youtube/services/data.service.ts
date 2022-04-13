@@ -4,6 +4,7 @@ import {
   Observable, map, mergeMap, BehaviorSubject,
 } from 'rxjs';
 import { SearchItem } from '../models/search-item.model';
+import { SearchResponse } from '../models/search-response.model';
 import { VideoItem } from '../models/video-response';
 
 @Injectable({
@@ -18,7 +19,7 @@ export class DataService {
     this.data$ = this.data$$.asObservable();
   }
 
-  public getData(search:string): void {
+  public getDataList(search:string): void {
     this.http.get<SearchItem>(`search?q=${search}`)
       .pipe(
         map((response) => response.items.map((el:VideoItem) => el.id.videoId)),
@@ -29,5 +30,12 @@ export class DataService {
       ).subscribe((value) => {
         this.data$$.next(value.items);
       });
+  }
+
+  public getDataItem(id:string):Observable<SearchItem> {
+    return this.http.get<SearchResponse>(`videos?id=${id}&part=statistics`)
+      .pipe(
+        map((response) => response.items[0]),
+      );
   }
 }
