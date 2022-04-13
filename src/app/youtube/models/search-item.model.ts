@@ -34,6 +34,7 @@ export interface SnippetItem {
   defaultAudioLanguage: string;
 }
 export interface SearchItem {
+  items: any;
   kind: string;
   etag: string;
   id: string;
