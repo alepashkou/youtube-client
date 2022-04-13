@@ -1,7 +1,7 @@
 import {
   Component,
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { debounceTime, filter } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
@@ -16,7 +16,7 @@ import { HeaderService } from '../../services/header.service';
 export class HeaderComponent {
   public sortingDisplay = false;
 
-  public search: FormControl = new FormControl('');
+  public search: FormControl = new FormControl('', Validators.minLength(3));
 
   constructor(
     private headerService:HeaderService,
