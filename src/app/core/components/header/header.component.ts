@@ -29,13 +29,10 @@ export class HeaderComponent {
       filter((value: string) => (value.length > 3)),
     )
       .subscribe((query) => {
+        this.goToMain();
         this.data.getData(query);
+        this.headerService.changeSearch(query);
       });
-  }
-
-  public changeSearch(value:string):void {
-    this.headerService.changeSearch(value);
-    this.goToMain();
   }
 
   public changeSortingDisplay():void {

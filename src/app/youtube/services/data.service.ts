@@ -19,13 +19,12 @@ export class DataService {
   }
 
   public getData(search:string): void {
-    const url = `https://youtube.googleapis.com/youtube/v3/search?q=${search}`;
-    this.http.get<SearchItem>(url)
+    this.http.get<SearchItem>(`search?q=${search}`)
       .pipe(
         map((response) => response.items.map((el:VideoItem) => el.id.videoId)),
         mergeMap((value) => {
           const list = value.join(',');
-          return this.http.get<SearchItem>(`https://www.googleapis.com/youtube/v3/videos?id=${list}&part=statistics`);
+          return this.http.get<SearchItem>(`videos?id=${list}&part=statistics`);
         }),
       ).subscribe((value) => {
         this.data$$.next(value.items);
