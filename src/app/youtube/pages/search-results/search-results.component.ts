@@ -2,7 +2,7 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import { HeaderService } from 'src/app/core/services/header.service';
+import { SearchService } from 'src/app/core/services/search.service';
 import { SearchItem } from '../../models/search-item.model';
 import { DataService } from '../../services/data.service';
 
@@ -18,9 +18,9 @@ export class SearchResultsComponent implements OnInit {
 
   sort: string = '';
 
-  constructor(public headerService: HeaderService, public dataService: DataService) {
-    this.headerService.sorting$.subscribe((value) => this.sort = value);
-    this.headerService.filter$.subscribe((value) => this.filter = value);
+  constructor(public searchService: SearchService, public dataService: DataService) {
+    this.searchService.sorting$.subscribe((value) => this.sort = value);
+    this.searchService.filter$.subscribe((value) => this.filter = value);
   }
 
   ngOnInit(): void {

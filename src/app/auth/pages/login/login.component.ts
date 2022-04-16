@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from '../../models/login.model';
-import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../../core/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,7 @@ export class LoginComponent {
 
   public simpleToken: string;
 
-  constructor(public route:Router, public authService: AuthService) {
+  constructor(public route:Router, public userService: UserService) {
     this.loginData = {
       login: '',
       password: '',
@@ -28,7 +28,7 @@ export class LoginComponent {
 
   clickToLogin(event: Event) {
     event.stopPropagation();
-    this.authService.logIn(this.loginData.login, this.simpleToken);
+    this.userService.logIn(this.loginData.login, this.simpleToken);
     this.route.navigate(['']);
   }
 }
