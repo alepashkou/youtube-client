@@ -2,8 +2,8 @@ import {
   Component,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth/services/auth.service';
-import { HeaderService } from '../../services/header.service';
+import { UserService } from 'src/app/core/services/user.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-header',
@@ -13,11 +13,11 @@ import { HeaderService } from '../../services/header.service';
 export class HeaderComponent {
   public sortingDisplay = false;
 
-  constructor(private headerService:HeaderService, private route: Router, public authService:AuthService) {}
+  constructor(private searchService:SearchService, private route: Router, public userService:UserService) {}
 
   public changeSearch(value:string):void {
     this.route.navigate(['']);
-    this.headerService.changeSearch(value);
+    this.searchService.changeSearch(value);
     this.goToMain();
   }
 
@@ -30,7 +30,7 @@ export class HeaderComponent {
   }
 
   public clickExit():void {
-    this.authService.logOut();
+    this.userService.logOut();
     this.route.navigate(['auth', 'login']);
   }
 

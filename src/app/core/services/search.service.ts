@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class HeaderService {
+export class SearchService {
   public search$: Observable<string>;
 
   private search$$ = new BehaviorSubject('');

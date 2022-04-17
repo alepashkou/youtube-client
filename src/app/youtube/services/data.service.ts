@@ -3,9 +3,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { youtubeData } from 'src/app/shared/mock/youtubeData';
 import { SearchItem } from '../models/search-item.model';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class DataService {
   public data$: Observable<SearchItem[]>;
 

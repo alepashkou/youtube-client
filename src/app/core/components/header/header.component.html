@@ -9,12 +9,12 @@
       />
       <button class="header__search-btn" (click)="changeSearch(searchTextBox.value)">search</button>
       <img (click)="changeSortingDisplay()" class="header__settings" src="assets/icons/settings.png" alt="settings" />
-      <mat-icon *ngIf="authService.isLogged" (click)="clickAdd()" class="header__add">library_add</mat-icon>
+      <mat-icon *ngIf="userService.isLogged" (click)="clickAdd()" class="header__add">library_add</mat-icon>
     </div>
     <div class="header_login">
-      <p *ngIf="authService.isLogged" class="header__name">{{authService.loginName$ | async}}</p>
-      <img *ngIf="!authService.isLogged" class="header__login-img" src="assets/login.png" alt="login" />
-      <button *ngIf="authService.isLogged" (click)="clickExit()" class="header__exit-btn" header__exit-btn >Exit</button>
+      <p *ngIf="userService.isLogged" class="header__name">{{userService.loginName$ | async}}</p>
+      <img *ngIf="!userService.isLogged" class="header__login-img" src="assets/login.png" alt="login" />
+      <button *ngIf="userService.isLogged" (click)="clickExit()" class="header__exit-btn" header__exit-btn >Exit</button>
     </div>
   </mat-toolbar>
   <app-filter *ngIf="sortingDisplay"></app-filter>
