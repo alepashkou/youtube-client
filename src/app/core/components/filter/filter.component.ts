@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HeaderService } from '../../services/header.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-filter',
@@ -11,7 +11,7 @@ export class FilterComponent {
 
   public filter: string = '';
 
-  constructor(private headerService: HeaderService) {}
+  constructor(private searchService: SearchService) {}
 
   public generateArrowStyle(sortType:string) {
     return { upArrow: this.sorting === sortType, downArrow: this.sorting === `-${sortType}` };
@@ -23,7 +23,7 @@ export class FilterComponent {
     } else {
       this.sorting = 'date';
     }
-    this.headerService.changeSorting(this.sorting);
+    this.searchService.changeSorting(this.sorting);
   }
 
   public changeSortingViews() {
@@ -32,11 +32,11 @@ export class FilterComponent {
     } else {
       this.sorting = 'views';
     }
-    this.headerService.changeSorting(this.sorting);
+    this.searchService.changeSorting(this.sorting);
   }
 
   public changeFilter(event: Event) {
     this.filter = (<HTMLInputElement>event.target).value;
-    this.headerService.changeFilter(this.filter);
+    this.searchService.changeFilter(this.filter);
   }
 }

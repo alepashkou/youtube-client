@@ -4,7 +4,7 @@ import { Observable, BehaviorSubject, of } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class UserService {
   public isLogged = false;
 
   public loginName$?: Observable<string>;

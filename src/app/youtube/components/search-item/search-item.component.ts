@@ -18,6 +18,6 @@ export class SearchItemComponent {
   constructor(private router:Router) {}
 
   public clickToAbout(id:string) {
-    this.router.navigate(['about/', id]);
+    this.router.navigate(['youtube', id]);
   }
 }

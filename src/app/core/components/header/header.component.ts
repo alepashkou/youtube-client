@@ -4,9 +4,9 @@ import {
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { debounceTime, filter } from 'rxjs';
-import { AuthService } from 'src/app/auth/services/auth.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { DataService } from 'src/app/youtube/services/data.service';
-import { HeaderService } from '../../services/header.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-header',
@@ -19,9 +19,9 @@ export class HeaderComponent {
   public search: FormControl = new FormControl('', Validators.minLength(3));
 
   constructor(
-    private headerService:HeaderService,
+    private searchService :SearchService,
     private route: Router,
-    public authService: AuthService,
+    public userService: UserService,
     private data: DataService,
   ) {
     this.search.valueChanges.pipe(
@@ -31,7 +31,7 @@ export class HeaderComponent {
       .subscribe((query) => {
         this.goToMain();
         this.data.getDataList(query);
-        this.headerService.changeSearch(query);
+        this.searchService.changeSearch(query);
       });
   }
 
@@ -44,7 +44,7 @@ export class HeaderComponent {
   }
 
   public clickExit():void {
-    this.authService.logOut();
+    this.userService.logOut();
     this.route.navigate(['auth', 'login']);
   }
 

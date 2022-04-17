@@ -3,7 +3,7 @@ import {
   FormGroup, FormControl, Validators, AbstractControl, ValidationErrors, ValidatorFn,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../../core/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +23,7 @@ export class LoginComponent {
 
   private readonly specials = '1!@#$%^&*()_-+=.,:;[]{}';
 
-  constructor(private route:Router, private authService: AuthService) {
+  constructor(private route:Router, private userService: UserService) {
     this.loginForm = new FormGroup({
       login: new FormControl('', [Validators.email]),
       password: new FormControl('', [this.checkPassword()]),
@@ -36,7 +36,7 @@ export class LoginComponent {
   }
 
   public onSubmit() {
-    this.authService.logIn(this.loginForm.get('login')?.value, this.simpleToken);
+    this.userService.logIn(this.loginForm.get('login')?.value, this.simpleToken);
     this.route.navigate(['']);
   }
 

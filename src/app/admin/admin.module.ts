@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCardComponent } from './pages/add-card/add-card.component';
 import { SharedModule } from '../shared/shared.module';
-import { AuthGuard } from '../auth/guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'add', component: AddCardComponent, canActivate: [AuthGuard] },
+  { path: 'add', component: AddCardComponent },
 ];
 
 @NgModule({

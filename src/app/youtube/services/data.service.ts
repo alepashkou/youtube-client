@@ -7,9 +7,7 @@ import { SearchItem } from '../models/search-item.model';
 import { SearchResponse } from '../models/search-response.model';
 import { VideoItem } from '../models/video-response';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class DataService {
   public data$: Observable<SearchItem[]>;
 
