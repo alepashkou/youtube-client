@@ -5,7 +5,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { debounceTime, filter } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
-import { DataService } from 'src/app/youtube/services/data.service';
+import { DataService } from 'src/app/core/services/data.service';
 import { SearchService } from '../../services/search.service';
 
 @Component({

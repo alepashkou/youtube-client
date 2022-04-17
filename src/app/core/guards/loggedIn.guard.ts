@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   CanLoad, Router,
 } from '@angular/router';
+import { map, Observable } from 'rxjs';
 import { UserService } from '../services/user.service';
 
 @Injectable({
@@ -10,13 +11,15 @@ import { UserService } from '../services/user.service';
 export class LoggedInGuard implements CanLoad {
   constructor(private auth: UserService, public router: Router) {}
 
-  canLoad(): Promise<boolean> {
-    return this.auth.isAuth().then((data) => {
-      if (data) {
-        this.router.navigate(['']);
-        return false;
-      }
-      return true;
-    });
+  canLoad(): Observable<boolean> {
+    return this.auth.isAuth().pipe(
+      map((value) => {
+        if (value) {
+          this.router.navigate(['']);
+          return false;
+        }
+        return true;
+      }),
+    );
   }
 }

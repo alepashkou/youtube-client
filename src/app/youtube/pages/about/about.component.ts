@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchItem } from '../../models/search-item.model';
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../../core/services/data.service';
 
 @Component({
   selector: 'app-about',

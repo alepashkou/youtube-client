@@ -3,11 +3,13 @@ import { Injectable } from '@angular/core';
 import {
   Observable, map, mergeMap, BehaviorSubject,
 } from 'rxjs';
-import { SearchItem } from '../models/search-item.model';
-import { SearchResponse } from '../models/search-response.model';
-import { VideoItem } from '../models/video-response';
+import { SearchItem } from '../../youtube/models/search-item.model';
+import { SearchResponse } from '../../youtube/models/search-response.model';
+import { VideoItem } from '../../youtube/models/video-response';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class DataService {
   public data$: Observable<SearchItem[]>;
 

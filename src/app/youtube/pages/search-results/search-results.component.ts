@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { SearchService } from 'src/app/core/services/search.service';
 import { SearchItem } from '../../models/search-item.model';
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../../core/services/data.service';
 
 @Component({
   selector: 'app-search-results',
