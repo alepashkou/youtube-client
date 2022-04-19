@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchItem } from '../../models/search-item.model';
-import { DataService } from '../../../core/services/data.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-about',
@@ -13,7 +13,7 @@ export class AboutComponent {
 
   public id: string;
 
-  constructor(public route: ActivatedRoute, public dataService: DataService, private router: Router) {
+  constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) {
     this.id = this.route.snapshot.params['id'];
     this.dataService.data$.subscribe((values) => {
       const findItem = values.find((el) => el.id === this.id);

@@ -3,9 +3,8 @@ import {
 } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { debounceTime, filter } from 'rxjs';
+import { debounceTime, filter, Observable } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
-import { DataService } from 'src/app/core/services/data.service';
 import { SearchService } from '../../services/search.service';
 
 @Component({
@@ -21,8 +20,7 @@ export class HeaderComponent {
   constructor(
     private searchService :SearchService,
     private route: Router,
-    public userService: UserService,
-    private data: DataService,
+    private userService: UserService,
   ) {
     this.search.valueChanges.pipe(
       debounceTime(400),
@@ -30,9 +28,16 @@ export class HeaderComponent {
     )
       .subscribe((query) => {
         this.goToMain();
-        this.data.getDataList(query);
         this.searchService.changeSearch(query);
       });
+  }
+
+  public checkIsAuth():Observable<Boolean> {
+    return this.userService.isAuth();
+  }
+
+  public checkLoginName():Observable<string> | undefined {
+    return this.userService.loginName$;
   }
 
   public changeSortingDisplay():void {
