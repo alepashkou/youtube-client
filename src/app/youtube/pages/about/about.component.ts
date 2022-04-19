@@ -13,7 +13,7 @@ export class AboutComponent implements OnInit {
 
   public id: string;
 
-  constructor(public route: ActivatedRoute, public dataService: DataService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];

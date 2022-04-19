@@ -18,9 +18,12 @@ export class SearchResultsComponent implements OnInit {
 
   public sort: string = '';
 
-  constructor(public searchService: SearchService, private dataService: DataService) {
+  public search: string = '';
+
+  constructor(private searchService: SearchService, private dataService: DataService) {
     this.searchService.sorting$.subscribe((value) => this.sort = value);
     this.searchService.filter$.subscribe((value) => this.filter = value);
+    this.searchService.search$.subscribe((value) => this.search = value);
   }
 
   ngOnInit(): void {
