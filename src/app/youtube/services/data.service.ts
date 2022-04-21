@@ -4,6 +4,8 @@ import {
   Observable, map, mergeMap, BehaviorSubject,
 } from 'rxjs';
 import { SearchService } from 'src/app/core/services/search.service';
+import { Store } from '@ngrx/store';
+import { changeSearchItems } from 'src/app/redux/actions/data.actions';
 import { SearchItem } from '../models/search-item.model';
 import { SearchResponse } from '../models/search-response.model';
 import { VideoItem } from '../models/video-response';
@@ -14,7 +16,7 @@ export class DataService {
 
   private data$$ = new BehaviorSubject([]);
 
-  constructor(private http:HttpClient, private searchService: SearchService) {
+  constructor(private http:HttpClient, private searchService: SearchService, private store: Store) {
     this.data$ = this.data$$.asObservable();
     this.searchService.search$.subscribe((value) => this.getDataList(value));
   }
@@ -28,6 +30,7 @@ export class DataService {
           return this.http.get<SearchItem>(`videos?id=${list}&part=statistics`);
         }),
       ).subscribe((value) => {
+        this.store.dispatch(changeSearchItems({ items: value.items }));
         this.data$$.next(value.items);
       });
   }

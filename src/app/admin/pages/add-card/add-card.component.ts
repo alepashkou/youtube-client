@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import {
   AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators,
 } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
+import { addCustomItem } from 'src/app/redux/actions/data.actions';
 
 @Component({
   selector: 'app-add-card',
@@ -16,7 +18,7 @@ export class AddCardComponent {
 
   private readonly currentDate: number = Date.now();
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private store: Store) {
     this.addCardForm = new FormGroup({
       title: new FormControl('', [Validators.minLength(3), Validators.maxLength(15)]),
       discription: new FormControl('', [Validators.maxLength(255)]),
@@ -39,6 +41,7 @@ export class AddCardComponent {
   }
 
   public onSubmit() {
+    this.store.dispatch(addCustomItem({ item: this.addCardForm.value }));
     this.router.navigate(['']);
   }
 }
