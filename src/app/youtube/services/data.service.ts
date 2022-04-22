@@ -18,7 +18,9 @@ export class DataService {
 
   constructor(private http:HttpClient, private searchService: SearchService, private store: Store) {
     this.data$ = this.data$$.asObservable();
-    this.searchService.search$.subscribe((value) => this.getDataList(value));
+    this.searchService.search$.subscribe((value) => {
+      if (value) this.getDataList(value);
+    });
   }
 
   public getDataList(search:string): void {
