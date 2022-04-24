@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
-  Observable, map, mergeMap, BehaviorSubject,
+  Observable, map, mergeMap, BehaviorSubject, retry,
 } from 'rxjs';
 import { SearchService } from 'src/app/core/services/search.service';
 import { SearchItem } from '../models/search-item.model';
@@ -16,12 +16,13 @@ export class DataService {
 
   constructor(private http:HttpClient, private searchService: SearchService) {
     this.data$ = this.data$$.asObservable();
-    this.searchService.search$.subscribe((value) => this.getDataList(value));
+    this.searchService.search$.subscribe((value) => { if (value) this.getDataList(value); });
   }
 
   public getDataList(search:string): void {
     this.http.get<SearchItem>(`search?q=${search}`)
       .pipe(
+        retry(2),
         map((response) => response.items.map((el:VideoItem) => el.id.videoId)),
         mergeMap((value) => {
           const list = value.join(',');
