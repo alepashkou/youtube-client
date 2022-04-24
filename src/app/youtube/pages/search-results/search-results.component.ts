@@ -31,7 +31,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.dataService.data$.subscribe((items) => this.data = items);
+    this.subscriptions.add(this.dataService.data$.subscribe((items) => this.data = items));
   }
 
   ngOnDestroy(): void {
