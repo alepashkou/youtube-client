@@ -1,7 +1,9 @@
 import {
   Component,
+  OnDestroy,
   OnInit,
 } from '@angular/core';
+import { Subscription, take } from 'rxjs';
 import { SearchService } from 'src/app/core/services/search.service';
 import { SearchItem } from '../../models/search-item.model';
 import { DataService } from '../../services/data.service';
@@ -11,7 +13,7 @@ import { DataService } from '../../services/data.service';
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss'],
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent implements OnInit, OnDestroy {
   public data: SearchItem[] = [];
 
   public filter: string = '';
@@ -20,13 +22,19 @@ export class SearchResultsComponent implements OnInit {
 
   public search: string = '';
 
+  subscriptions: Subscription = new Subscription();
+
   constructor(private searchService: SearchService, private dataService: DataService) {
-    this.searchService.sorting$.subscribe((value) => this.sort = value);
-    this.searchService.filter$.subscribe((value) => this.filter = value);
-    this.searchService.search$.subscribe((value) => this.search = value);
+    this.subscriptions.add(this.searchService.sorting$.subscribe((value) => this.sort = value));
+    this.subscriptions.add(this.searchService.filter$.subscribe((value) => this.filter = value));
+    this.subscriptions.add(this.searchService.search$.subscribe((value) => this.search = value));
   }
 
   ngOnInit(): void {
-    this.dataService.data$.subscribe((items) => this.data = items);
+    this.subscriptions.add(this.dataService.data$.subscribe((items) => this.data = items));
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }
