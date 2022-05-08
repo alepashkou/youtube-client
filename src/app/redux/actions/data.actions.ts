@@ -1,5 +1,5 @@
 import { props, createAction } from '@ngrx/store';
-import { SearchItem } from 'src/app/youtube/models/search-item.model';
+import { SearchItem } from 'src/app/youtube/models/card-item.model';
 import { CustomItem } from '../state.models';
 
 export const ADD_CUSTOM_CARD = 'ADD CUSTOM CARD';

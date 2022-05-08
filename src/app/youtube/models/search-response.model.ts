@@ -1,4 +1,4 @@
-import { SearchItem } from './search-item.model';
+import { SearchItem } from './card-item.model';
 
 export interface PageInfo {
   totalResults: number;

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { SearchResultsComponent } from './pages/search-results/search-results.component';
-import { SearchItemComponent } from './components/search-item/search-item.component';
+import { CardItemComponent } from './components/card-item/card-item.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortingPipe } from './pipes/sorting.pipe';
@@ -18,7 +18,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     SearchResultsComponent,
-    SearchItemComponent,
+    CardItemComponent,
     StatisticsComponent,
     FilterPipe,
     SortingPipe,

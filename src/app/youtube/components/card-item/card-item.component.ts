@@ -4,15 +4,15 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { StatisticsItem } from '../../models/search-item.model';
+import { StatisticsItem } from '../../models/card-item.model';
 
 @Component({
-  selector: 'app-search-item',
-  templateUrl: './search-item.component.html',
-  styleUrls: ['./search-item.component.scss'],
+  selector: 'app-card-item',
+  templateUrl: './card-item.component.html',
+  styleUrls: ['./card-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchItemComponent {
+export class CardItemComponent {
   @Input() title: string;
 
   @Input() date: string;

@@ -6,7 +6,7 @@ import {
 import { Store } from '@ngrx/store';
 import { changeSearchItems } from 'src/app/redux/actions/data.actions';
 import { selectDataSearch } from 'src/app/redux/selectors/selectors.data';
-import { SearchItem } from '../../youtube/models/search-item.model';
+import { SearchItem } from '../../youtube/models/card-item.model';
 import { SearchResponse } from '../../youtube/models/search-response.model';
 import { VideoItem } from '../../youtube/models/video-response';
 

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { StatisticsItem } from '../../models/search-item.model';
+import { StatisticsItem } from '../../models/card-item.model';
 
 @Component({
   selector: 'app-statistics',
