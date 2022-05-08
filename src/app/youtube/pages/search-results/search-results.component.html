@@ -1,3 +1,16 @@
 <div *ngIf="allData$$.search" class="search__results">
-  <app-search-item *ngFor="let item of allData$$.searchItems | filterPipe:allData$$.filter| sortingPipe:allData$$.sorting" [item]="item"></app-search-item>
+  <app-search-item
+  *ngFor="let item of allData$$.customItems"
+  [title]="item.title"
+  [date]="item.date"
+  [url]="item.img"
+  ></app-search-item>
+  <app-search-item
+  *ngFor="let item of allData$$.searchItems | filterPipe:allData$$.filter | sortingPipe:allData$$.sorting"
+  [title]="item.snippet.title"
+  [date]="item.snippet.publishedAt"
+  [url]="item.snippet.thumbnails.high.url"
+  [id]="item.id"
+  [statistics]="item.statistics"
+  ></app-search-item>
 </div>

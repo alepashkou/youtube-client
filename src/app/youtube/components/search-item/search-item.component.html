@@ -1,15 +1,15 @@
-<mat-card class="search__card" (click)="clickToAbout(item.id)" [appBottomBorderColor]="item.snippet.publishedAt">
+<mat-card class="search__card" [appBottomBorderColor]="date">
   <img
     mat-card-image
     class="search__card-img"
-    [src]="item.snippet.thumbnails.high.url"
-    [alt]="item.snippet.title"
+    [alt]="title"
+    [src]="url"
   />
-<app-statistics [stat]="item.statistics"></app-statistics>
+<app-statistics *ngIf="statistics" [stat]="statistics"></app-statistics>
   <mat-card-title class="search__card-title">
   <marquee behavior="scroll" direction="left">{{
-    item.snippet.title
+    title
   }}</marquee>
 </mat-card-title>
-  <button class="search__card-btn">more...</button>
+  <button *ngIf="id" (click)="clickToAbout()" class="search__card-btn">more...</button>
 </mat-card>
