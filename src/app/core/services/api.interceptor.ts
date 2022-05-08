@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class ApiInterceptor implements HttpInterceptor {
-  private readonly apiToken = 'AIzaSyAwQPOShnGHYLbnybadYKE7kbv1_93ll8I';
+  private readonly apiToken = 'AIzaSyAAUsPNDvy9QFwmofRBujvk_3SR1atGXm4';
 
   private readonly baseUrl = 'https://youtube.googleapis.com/youtube/v3/';
 
@@ -18,7 +18,7 @@ export class ApiInterceptor implements HttpInterceptor {
       url: this.baseUrl + request.url,
       params: request.params.set('key', this.apiToken)
         .append('part', 'snippet')
-        .append('maxResults', '20'),
+        .append('maxResults', '7'),
     });
     return next.handle(clonedRequest);
   }

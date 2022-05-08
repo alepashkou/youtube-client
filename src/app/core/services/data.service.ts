@@ -1,24 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
-  Observable, map, mergeMap, BehaviorSubject, retry,
+  Observable, map, mergeMap, retry,
 } from 'rxjs';
-import { SearchService } from 'src/app/core/services/search.service';
 import { Store } from '@ngrx/store';
 import { changeSearchItems } from 'src/app/redux/actions/data.actions';
-import { SearchItem } from '../models/search-item.model';
-import { SearchResponse } from '../models/search-response.model';
-import { VideoItem } from '../models/video-response';
+import { selectDataSearch } from 'src/app/redux/selectors/selectors.data';
+import { SearchItem } from '../../youtube/models/search-item.model';
+import { SearchResponse } from '../../youtube/models/search-response.model';
+import { VideoItem } from '../../youtube/models/video-response';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class DataService {
-  public data$: Observable<SearchItem[]>;
+  private search = this.store.select(selectDataSearch);
 
-  private data$$ = new BehaviorSubject([]);
-
-  constructor(private http:HttpClient, private searchService: SearchService, private store: Store) {
-    this.data$ = this.data$$.asObservable();
-    this.searchService.search$.subscribe((value) => { if (value) this.getDataList(value); });
+  constructor(private http:HttpClient, private store: Store) {
+    this.search.subscribe((value) => {
+      if (value) this.getDataList(value);
+    });
   }
 
   public getDataList(search:string): void {
@@ -32,7 +33,6 @@ export class DataService {
         }),
       ).subscribe((value) => {
         this.store.dispatch(changeSearchItems({ items: value.items }));
-        this.data$$.next(value.items);
       });
   }
 

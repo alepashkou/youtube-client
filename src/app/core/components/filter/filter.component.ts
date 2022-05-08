@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { SearchService } from '../../services/search.service';
+import { Store } from '@ngrx/store';
+import { changeFilter, changeSorting } from 'src/app/redux/actions/data.actions';
 
 @Component({
   selector: 'app-filter',
@@ -11,7 +12,7 @@ export class FilterComponent {
 
   public filter: string = '';
 
-  constructor(private searchService: SearchService) {}
+  constructor(private store: Store) {}
 
   public generateArrowStyle(sortType:string) {
     return { upArrow: this.sorting === sortType, downArrow: this.sorting === `-${sortType}` };
@@ -23,7 +24,7 @@ export class FilterComponent {
     } else {
       this.sorting = 'date';
     }
-    this.searchService.changeSorting(this.sorting);
+    this.store.dispatch(changeSorting({ sorting: this.sorting }));
   }
 
   public changeSortingViews() {
@@ -32,11 +33,11 @@ export class FilterComponent {
     } else {
       this.sorting = 'views';
     }
-    this.searchService.changeSorting(this.sorting);
+    this.store.dispatch(changeSorting({ sorting: this.sorting }));
   }
 
   public changeFilter(event: Event) {
     this.filter = (<HTMLInputElement>event.target).value;
-    this.searchService.changeFilter(this.filter);
+    this.store.dispatch(changeFilter({ filter: this.filter }));
   }
 }

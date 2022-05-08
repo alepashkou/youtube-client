@@ -3,9 +3,10 @@ import {
 } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { debounceTime, filter, Observable } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
-import { SearchService } from '../../services/search.service';
+import { changeSearch } from 'src/app/redux/actions/data.actions';
 
 @Component({
   selector: 'app-header',
@@ -18,9 +19,9 @@ export class HeaderComponent {
   public search: FormControl = new FormControl('', Validators.minLength(3));
 
   constructor(
-    private searchService :SearchService,
     private route: Router,
     private userService: UserService,
+    private store: Store,
   ) {
     this.search.valueChanges.pipe(
       debounceTime(400),
@@ -28,7 +29,7 @@ export class HeaderComponent {
     )
       .subscribe((query) => {
         this.goToMain();
-        this.searchService.changeSearch(query);
+        this.store.dispatch(changeSearch({ search: query }));
       });
   }
 

@@ -1,3 +1,3 @@
-<div *ngIf="search" class="search__results">
-  <app-search-item *ngFor="let item of data | filterPipe:filter | sortingPipe:sort" [item]="item"></app-search-item>
+<div *ngIf="allData$$.search" class="search__results">
+  <app-search-item *ngFor="let item of allData$$.searchItems | filterPipe:allData$$.filter| sortingPipe:allData$$.sorting" [item]="item"></app-search-item>
 </div>

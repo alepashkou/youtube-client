@@ -6,8 +6,10 @@
     [alt]="item.snippet.title"
   />
 <app-statistics [stat]="item.statistics"></app-statistics>
-  <mat-card-title class="search__card-title">{{
+  <mat-card-title class="search__card-title">
+  <marquee behavior="scroll" direction="left">{{
     item.snippet.title
-  }}</mat-card-title>
+  }}</marquee>
+</mat-card-title>
   <button class="search__card-btn">more...</button>
 </mat-card>
