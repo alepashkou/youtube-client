@@ -12,6 +12,7 @@ import { ApiInterceptor } from './core/services/api.interceptor';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { dataReducer } from './redux/reducers/data.reducer';
+import { ChangeSearchEffects } from './redux/effects/data.effects';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { dataReducer } from './redux/reducers/data.reducer';
     HttpClientModule,
     StoreModule.forRoot({ data: dataReducer }, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([ChangeSearchEffects]),
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true }],
   bootstrap: [AppComponent],

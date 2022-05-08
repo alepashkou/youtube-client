@@ -16,14 +16,16 @@ import { VideoItem } from '../../youtube/models/video-response';
 export class DataService {
   private search = this.store.select(selectDataSearch);
 
+  public currentSearch: string;
+
   constructor(private http:HttpClient, private store: Store) {
     this.search.subscribe((value) => {
-      if (value) this.getDataList(value);
+      if (value) this.currentSearch = value;
     });
   }
 
-  public getDataList(search:string): void {
-    this.http.get<SearchItem>(`search?q=${search}`)
+  public getDataList(): void {
+    this.http.get<SearchItem>(`search?q=${this.currentSearch}`)
       .pipe(
         retry(2),
         map((response) => response.items.map((el:VideoItem) => el.id.videoId)),
