@@ -9,4 +9,5 @@ export const dataReducer = createReducer(
   on(TaskActions.changeFilter, (state, { filter }):AllYoutubeData => ({ ...state, filter })),
   on(TaskActions.changeSearch, (state, { search }):AllYoutubeData => ({ ...state, search })),
   on(TaskActions.changeSorting, (state, { sorting }):AllYoutubeData => ({ ...state, sorting })),
+  on(TaskActions.haveError, (state, { error }):AllYoutubeData => ({ ...state, error })),
 );

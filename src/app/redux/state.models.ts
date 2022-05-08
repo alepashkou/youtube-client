@@ -13,7 +13,8 @@ export interface AllYoutubeData {
   searchItems: SearchItem[],
   filter: string,
   sorting: string,
-  search: string
+  search: string,
+  error?: Error
 }
 
 export interface CustomItem {

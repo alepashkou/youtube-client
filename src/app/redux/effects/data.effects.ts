@@ -1,9 +1,12 @@
 /* eslint-disable ngrx/prefer-effect-callback-in-block-statement */
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { tap } from 'rxjs';
+import {
+  catchError, map, mergeMap, of,
+} from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
-import { changeSearch } from '../actions/data.actions';
+import { SearchResponse } from 'src/app/youtube/models/search-response.model';
+import { changeSearch, changeSearchItems, haveError } from '../actions/data.actions';
 
 @Injectable()
 export class ChangeSearchEffects {
@@ -14,8 +17,9 @@ export class ChangeSearchEffects {
 
   cahngeData$ = createEffect(() => this.actions$.pipe(
     ofType(changeSearch),
-    tap(() => {
-      this.dataService.getDataList();
-    }),
-  ), { dispatch: false });
+    mergeMap((action) => this.dataService.getDataList(action.search).pipe(
+      map((data: SearchResponse) => changeSearchItems({ items: data.items })),
+      catchError((error: Error) => of(haveError({ error }))),
+    )),
+  ));
 }
