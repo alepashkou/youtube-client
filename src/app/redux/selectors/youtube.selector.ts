@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { AllYoutubeData } from '../state.models';
+import { AllYoutubeData } from '../models/youtube.model';
 
-const selectState = createFeatureSelector<AllYoutubeData>('data');
+const selectState = createFeatureSelector<AllYoutubeData>('youtube');
 
 export const selectData = createSelector(
   selectState,
@@ -10,14 +10,6 @@ export const selectData = createSelector(
 export const selectDataSearch = createSelector(
   selectState,
   (state) => state.search,
-);
-export const selectDataFilter = createSelector(
-  selectState,
-  (state) => state.filter,
-);
-export const selectDataSorting = createSelector(
-  selectState,
-  (state) => state.sorting,
 );
 export const selectDataSearchItems = createSelector(
   selectState,

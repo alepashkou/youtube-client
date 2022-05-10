@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { debounceTime, filter, Observable } from 'rxjs';
 import { UserService } from 'src/app/core/services/user.service';
-import { changeSearch } from 'src/app/redux/actions/data.actions';
+import { loadSearchItems } from 'src/app/redux/actions/youtube.action';
 
 @Component({
   selector: 'app-header',
@@ -29,7 +29,7 @@ export class HeaderComponent {
     )
       .subscribe((query) => {
         this.goToMain();
-        this.store.dispatch(changeSearch({ search: query }));
+        this.store.dispatch(loadSearchItems({ search: query }));
       });
   }
 

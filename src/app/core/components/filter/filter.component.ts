@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { changeFilter, changeSorting } from 'src/app/redux/actions/data.actions';
+import { updateFilter, updateSorting } from 'src/app/redux/actions/youtube.action';
 
 @Component({
   selector: 'app-filter',
@@ -24,7 +24,7 @@ export class FilterComponent {
     } else {
       this.sorting = 'date';
     }
-    this.store.dispatch(changeSorting({ sorting: this.sorting }));
+    this.store.dispatch(updateSorting({ sorting: this.sorting }));
   }
 
   public changeSortingViews() {
@@ -33,11 +33,11 @@ export class FilterComponent {
     } else {
       this.sorting = 'views';
     }
-    this.store.dispatch(changeSorting({ sorting: this.sorting }));
+    this.store.dispatch(updateSorting({ sorting: this.sorting }));
   }
 
   public changeFilter(event: Event) {
     this.filter = (<HTMLInputElement>event.target).value;
-    this.store.dispatch(changeFilter({ filter: this.filter }));
+    this.store.dispatch(updateFilter({ filter: this.filter }));
   }
 }

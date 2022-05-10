@@ -6,20 +6,20 @@ import {
 } from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
 import { SearchResponse } from 'src/app/youtube/models/search-response.model';
-import { changeSearch, changeSearchItems, haveError } from '../actions/data.actions';
+import * as fromActions from '../actions';
 
 @Injectable()
-export class ChangeSearchEffects {
+export class YoutubeEffects {
   constructor(
     private actions$: Actions,
     private dataService: DataService,
   ) {}
 
-  cahngeData$ = createEffect(() => this.actions$.pipe(
-    ofType(changeSearch),
+  loadSearchItems$ = createEffect(() => this.actions$.pipe(
+    ofType(fromActions.loadSearchItems),
     mergeMap((action) => this.dataService.getDataList(action.search).pipe(
-      map((data: SearchResponse) => changeSearchItems({ items: data.items })),
-      catchError((error: Error) => of(haveError({ error }))),
+      map((data: SearchResponse) => fromActions.loadSearchItemsSuccess({ items: data.items })),
+      catchError((error: Error) => of(fromActions.loadSearchItemsFail({ error }))),
     )),
   ));
 }

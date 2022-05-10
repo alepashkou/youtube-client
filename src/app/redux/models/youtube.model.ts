@@ -1,6 +1,6 @@
-import { SearchItem } from '../youtube/models/card-item.model';
+import { SearchItem } from '../../youtube/models/card-item.model';
 
-export const initialState:AllYoutubeData = {
+export const initialState: AllYoutubeData = {
   customItems: [],
   searchItems: [],
   filter: '',

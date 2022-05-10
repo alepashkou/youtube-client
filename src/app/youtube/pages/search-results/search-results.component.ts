@@ -5,8 +5,8 @@ import {
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { selectData } from 'src/app/redux/selectors/selectors.data';
-import { AllYoutubeData } from 'src/app/redux/state.models';
+import { selectData } from 'src/app/redux/selectors/youtube.selector';
+import { AllYoutubeData } from 'src/app/redux/models/youtube.model';
 import { DataService } from '../../../core/services/data.service';
 
 @Component({

@@ -11,8 +11,8 @@ import { CoreModule } from './core/core.module';
 import { ApiInterceptor } from './core/services/api.interceptor';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
-import { dataReducer } from './redux/reducers/data.reducer';
-import { ChangeSearchEffects } from './redux/effects/data.effects';
+import { YoutubeEffects } from './redux/effects/youtube.effect';
+import { reducers } from './redux/reducers';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,9 @@ import { ChangeSearchEffects } from './redux/effects/data.effects';
     BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
-    StoreModule.forRoot({ data: dataReducer }, {}),
+    StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([ChangeSearchEffects]),
+    EffectsModule.forRoot([YoutubeEffects]),
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true }],
   bootstrap: [AppComponent],

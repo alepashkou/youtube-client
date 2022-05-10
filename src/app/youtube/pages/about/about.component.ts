@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs';
-import { selectDataSearchItems } from 'src/app/redux/selectors/selectors.data';
+import { selectDataSearchItems } from 'src/app/redux/selectors/youtube.selector';
 import { SearchItem } from '../../models/card-item.model';
 import { DataService } from '../../../core/services/data.service';
 

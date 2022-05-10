@@ -4,7 +4,7 @@ import {
 } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { addCustomItem } from 'src/app/redux/actions/data.actions';
+import { addCustomItem } from 'src/app/redux/actions/youtube.action';
 
 @Component({
   selector: 'app-add-card',
