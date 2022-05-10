@@ -1,3 +1,4 @@
+<mat-progress-bar *ngIf="allData$$.loading" mode="indeterminate"></mat-progress-bar>
 <div *ngIf="allData$$.search" class="search__results">
   <app-card-item
   *ngFor="let item of allData$$.customItems"

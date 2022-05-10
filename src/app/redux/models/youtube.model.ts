@@ -6,6 +6,7 @@ export const initialState: AllYoutubeData = {
   filter: '',
   sorting: '',
   search: '',
+  loading: false,
 };
 
 export interface AllYoutubeData {
@@ -14,7 +15,8 @@ export interface AllYoutubeData {
   filter: string,
   sorting: string,
   search: string,
-  error?: Error
+  error?: Error,
+  loading: boolean,
 }
 
 export interface CustomItem {
