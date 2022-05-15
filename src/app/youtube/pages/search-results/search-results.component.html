@@ -1,0 +1,17 @@
+<mat-progress-bar *ngIf="allData$$.loading" mode="indeterminate"></mat-progress-bar>
+<div *ngIf="allData$$.search" class="search__results">
+  <app-card-item
+  *ngFor="let item of allData$$.customItems"
+  [title]="item.title"
+  [date]="item.date"
+  [url]="item.img"
+  ></app-card-item>
+  <app-card-item
+  *ngFor="let item of allData$$.searchItems | filterPipe:allData$$.filter | sortingPipe:allData$$.sorting"
+  [title]="item.snippet.title"
+  [date]="item.snippet.publishedAt"
+  [url]="item.snippet.thumbnails.high.url"
+  [id]="item.id"
+  [statistics]="item.statistics"
+  ></app-card-item>
+</div>

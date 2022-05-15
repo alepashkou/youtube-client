@@ -1,0 +1,30 @@
+.filter__container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+.filter__sortingBy{
+  color: #929292;
+}
+.filter__sorting, .filter__filter{
+  margin-left: 21px;
+  text-decoration-line: underline;
+  color: #2F80ED;
+  cursor: pointer;
+}
+.filter__filter{
+  margin-right: 10px;
+  text-decoration-line: none;
+  cursor: default;
+}
+.downArrow::after{
+  content: " ↓"
+}
+.upArrow::after{
+  content: " ↑"
+}

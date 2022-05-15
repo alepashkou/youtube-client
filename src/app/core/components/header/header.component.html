@@ -1,0 +1,22 @@
+<mat-toolbar>
+    <div class="header_search">
+      <img class="header__logo" src="assets/logo.png" alt="logo" (click)="goToMain()"/>
+      <mat-form-field  class="header__search-input">
+        <input
+        matInput
+        type="text"
+        placeholder="What are you want to find out"
+        [formControl]="search"
+      />
+      <mat-error *ngIf="search.hasError('minlength')">The search is too short</mat-error>
+      </mat-form-field>
+      <img (click)="changeSortingDisplay()" class="header__settings" src="assets/icons/settings.png" alt="settings" />
+      <mat-icon *ngIf="checkIsAuth() | async" (click)="clickAdd()" class="header__add">library_add</mat-icon>
+    </div>
+    <div class="header_login">
+      <p *ngIf="checkIsAuth() | async" class="header__name">{{checkLoginName() | async}}</p>
+      <img *ngIf="(checkIsAuth() | async) === false" class="header__login-img" src="assets/login.png" alt="login" />
+      <button *ngIf="checkIsAuth() | async" (click)="clickExit()" class="header__exit-btn" header__exit-btn >Exit</button>
+    </div>
+  </mat-toolbar>
+  <app-filter *ngIf="sortingDisplay"></app-filter>

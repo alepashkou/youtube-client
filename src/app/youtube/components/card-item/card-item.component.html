@@ -1,0 +1,15 @@
+<mat-card class="search__card" [appBottomBorderColor]="date">
+  <img
+    mat-card-image
+    class="search__card-img"
+    [alt]="title"
+    [src]="url"
+  />
+<app-statistics *ngIf="statistics" [stat]="statistics"></app-statistics>
+  <mat-card-title class="search__card-title">
+  <marquee behavior="scroll" direction="left">{{
+    title
+  }}</marquee>
+</mat-card-title>
+  <button *ngIf="id" (click)="clickToAbout()" class="search__card-btn">more...</button>
+</mat-card>
